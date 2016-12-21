@@ -1,0 +1,31 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+description: > # this means to ignore newlines until "baseurl:"
+        This is the repository for the created code and documents as part of a research project done in Spring 2016 at [IRAP](http://www.irap.omp.eu/en) under the supervision of [Dr. Natalie Webb](http://userpages.irap.omp.eu/~nwebb/).
+baseurl: "/muselabbook16"
+#url: http://manuelpm.me/muselabbook16
+gems:
+  - jekyll-pandoc
+
+# Build settings
+markdown: Pandoc
+pandoc:
+  extensions: 
+    - smart
+    - mathjax
+    - bibliography: bibliography/labnotebook.bib
+
+author:
+  name: Manuel Pichardo marcano
+  givenName: Manuel
+  familyName: Pichardo M
+  github: manuelmarcano22
+title: Lab Notebook for MUSE Data Reduction Spring 2016 IRAP
+name: Lab Notebook for MUSE Data Reduction Spring 2016 IRAP
+email: manuelpichardom@gmail.com
