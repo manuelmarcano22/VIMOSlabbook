@@ -79,7 +79,7 @@ Delete all images:
 
 #### To start using ds9 or pyraf
 
-*   `docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimos9 manuelmarcano22/vimosdocker:auto`. In this one might need to do `xhost -local:root`.
+*   `docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimos9 manuelmarcano22/vimosdocker:auto`. In this one might need to do `xhost -local:docker`.
 
 Other ways can be found here: [http://wiki.ros.org/docker/Tutorials/GUI](http://wiki.ros.org/docker/Tutorials/GUI). Some is discused here: [Running GUI apps with Docker](http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/).
 
