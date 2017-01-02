@@ -37,6 +37,23 @@ Some resources are listed below. This includes some articles and blog post talki
 
 *   [Reproducible Computational Workflows with Continuous Analysis](http://biorxiv.org/content/early/2016/08/11/056473).
 
+
+### Docker SSH
+
+After some help from [here](https://dzone.com/articles/docker-x11-client-via-ssh) I was able to get X forwarding. I now run in my VPS
+
+`docker run -ti -e DISPLAY=$DISPLAY --net=host  -v /tmp/.X11-unix:/tmp/.X11-unix  --volume="$HOME/.Xauthority:/home/vimos/.Xauthority:rw"  --name xvaina manuelmarcano22/vimosdocker:latest`
+
+I have to ssh with the **-Y**, with **-X**  I get  the error **X Error of failed request:  BadAccess (attempt to access private resource denied)**
+
+Before I looked at the *.Xauthority* file and added the docker group just in case. 
+ 
+`$ chown mmarcano22:docker ~/.Xauthority`
+
+and 
+
+`$ chmod 0600 ~/.Xauthority`
+
 ### Useful commands:
 
 #### To pull from Docker hub:
