@@ -55,6 +55,7 @@ All the apertures are safe in the log file under the folder called *database*
 - [Durham Postgraduate Data Reduction Course](http://astro.dur.ac.uk/~cpnc25/pg_dr_spectroscopy.html)
 - [IRAF spectroscopy Documentation](http://iraf.noao.edu/docs/spectra.html)
 - [VI. Basic Reductions for Spectroscopic Data](http://www.twilightlandscapes.com/IRAFtutorial/IRAFintro_06.html)
+- [Spectral Reduction Procedures](http://www.ucolick.org/~bolte/AY257/ay257_6.pdf)
 
 ## Response
 
