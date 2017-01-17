@@ -86,6 +86,7 @@ Then as it is stated in the website apply to the spectrum:
 > Usage: Master response curves R_mst can be applied by hand to extracted spectra with the following procedure:
 > F_obs = R_mst * f_raw * 10**(0.4 * airmass * extinction)
 
+In the header there is a line called `HIERARCH ESO TEL AIRM START = 1.082 / Airmass at start` and here it mentions some extinction coefficients for different pediods for each filters and quadrants. [Colour terms and extinction coefficients](http://www.eso.org/observing/dfo/quality/VIMOS/qc/zeropoints.html)
 
 #### Failed attempt
 
