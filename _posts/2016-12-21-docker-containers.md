@@ -54,6 +54,12 @@ and
 
 `$ chmod 0600 ~/.Xauthority`
 
+Still haven’t completely figure it out.
+
+*   https://blog.docker.com/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/
+
+*   https://dzone.com/articles/docker-x11-client-via-ssh
+
 ### Useful commands:
 
 #### To pull from Docker hub:
@@ -96,14 +102,17 @@ Delete all images:
 
 #### To start using ds9 or pyraf
 
-*   `docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimos9 manuelmarcano22/vimosdocker:auto`. In this one might need to do `xhost -local:docker`.
+*   `docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimos9 manuelmarcano22/vimosdocker:auto`. In this one might need to do `xhost -local:docker`. I have to do it in my personal laptop. 
 
 Other ways can be found here: [http://wiki.ros.org/docker/Tutorials/GUI](http://wiki.ros.org/docker/Tutorials/GUI). Some is discused here: [Running GUI apps with Docker](http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/).
 
-#### If want to us X over ssh it is a bit tricky.
+#### To start with Jupyter notebooks
 
-Still haven’t completely figure it out.
+Use the same command as above but include the port `-p 8888:8888`:
 
-*   https://blog.docker.com/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/
+* `docker run -ti  -p 8888:8888  -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimosnet manuelmarcano22/vimosdocker:latest`
 
-*   https://dzone.com/articles/docker-x11-client-via-ssh
+Then in the docker container do:
+
+* `jupyter notebook --ip 0.0.0.0 --no-browser --port 8888`
+
