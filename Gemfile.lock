@@ -130,7 +130,11 @@ GEM
     octokit (4.3.0)
       sawyer (~> 0.7.0, >= 0.5.3)
     pandoc-ruby (1.0.0)
+    posix-spawn (0.3.13)
     public_suffix (1.5.3)
+    pygments.rb (0.6.3)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.2.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -180,6 +184,7 @@ GEM
       ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
@@ -189,7 +194,8 @@ DEPENDENCIES
   github-pages
   jekyll-archives
   jekyll-pandoc
+  pygments.rb (~> 0.6.3)
   sass-rails (>= 3.2)
 
 BUNDLED WITH
-   1.11.2
+   1.13.6

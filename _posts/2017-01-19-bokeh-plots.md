@@ -12,30 +12,20 @@ One idea is that instead of having to take screenshots of the iraf spectra, I ca
 * Create a javascript file and put in in the **{{site.baseurl}}/images/bokehgraphs** folder
 * Then in here call the script. For example:
 
-```html
+{% highlight html %}
 <script
     src="{{site.baseurl}}/images/bokehgraphs/bokeh1.js"
     id="deab7ab7-b894-4eb4-81be-488c6d136d17"
     data-bokeh-model-id="5dcc4051-f29b-439a-8c65-43090c7bab7c"
     data-bokeh-doc-id="d572a467-6563-4a98-859c-4e5242fa207f"
 ></script>
-
-```
-This renders the example plot shown below:
-
-
-<script
-    src="{{site.baseurl}}/images/bokehgraphs/bokeh1.js"
-    id="deab7ab7-b894-4eb4-81be-488c6d136d17"
-    data-bokeh-model-id="5dcc4051-f29b-439a-8c65-43090c7bab7c"
-    data-bokeh-doc-id="d572a467-6563-4a98-859c-4e5242fa207f"
-></script>
-
+{% endhighlight %}
 
 
 The minimal python script is:
 
-```python
+{% highlight python linenos %}
+
 from bokeh.resources import CDN
 from bokeh.plotting import figure
 from bokeh.embed import autoload_static
@@ -54,7 +44,8 @@ with open(name+'.js','w') as jsfile:
 	jsfile.write(js)
 with open(name+'.html','w') as htmlfile:
 	htmlfile.write(tag)
-```
+
+{% endhighlight %}
 
 
 ### Bokeh and Docker

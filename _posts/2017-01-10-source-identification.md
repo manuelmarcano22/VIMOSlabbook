@@ -10,9 +10,11 @@ tags: [data, spectra,apall, vimx, dbus,iraf, pyraf,SEXM,SRFM]
 
 I was having problems with matplotlib. It was a problem with the dbus. I found the solution [here](http://www.torkwrench.com/2012/12/16/d-bus-library-appears-to-be-incorrectly-set-up-failed-to-read-machine-uuid-failed-to-open-varlibdbusmachine-id/). It was doing:
 
-```
+
+{% highlight bash %}
 root@container#dbus-uuidgen >/etc/machine-id
-```
+{% endhighlight %}
+
 For some people it was 
 
 `
@@ -71,12 +73,12 @@ For example for CX25 the relevant information to decide what response curve to u
 
 so in this case according to the observing date:
 
-```
+{% highlight python %}
 resp = fits.open('VI_GRSM_101001A_GG475_MR_Q4.fits')
 wave = np.array([ resp[1].data[i][0] for i in np.arange(resp[1].data.shape[0]) ])
 response = np.array([ resp[1].data[i][6] for i in np.arange(resp[1].data.shape[0]) ])
+{% endhighlight %}
 
-```
 It looks like this:
 
 ![Response for MR and Quandrant 4]({{site.baseurl}}/images/MR_Q4_resp.png)
@@ -93,9 +95,9 @@ In the header there is a line called `HIERARCH ESO TEL AIRM START = 1.082 / Airm
 
 I tried to used python to reduce the spectra by averaging the data. Something like the following. I will better learn to do it the "right way" with IRAF.
 
-fits.writeto('newcx25.fits',original[0].data[30:180,:] ,original[0].header)
 
-```python
+{% highlight python %}
+fits.writeto('newcx25.fits',original[0].data[30:180,:] ,original[0].header)
 #!/usr/bin/python2
 
 from astropy.io import fits
@@ -108,7 +110,8 @@ header1['NAXIS2'] = 1
 fits.writeto('lastmedian.fits', np.median(ssem[0].data, axis=0)  ,header1)          
 mediannorm = [ i/np.max(ssem[0].data) for i in np.median(ssem[0].data,axis=0)]  
 fits.writeto('lastmediannorm.fits', mediannorm  ,header1)
-```
+{% endhighlight  %}
+
 
 ![SRFM vs SSEM]({{site.baseurl}}/images/cx59both.png)
 

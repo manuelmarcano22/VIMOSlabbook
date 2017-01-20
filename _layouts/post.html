@@ -18,7 +18,7 @@ layout: default
 
 
 <div class="well well-small">
-<p class="text-info"><span class="glyphicons glyphicon-tags"></span>&nbsp;Tags</p>
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
 <ul>
 {% for tag in page.tags %}
 <li><a href='{{ site.baseurl }}/tag/{{ tag | url_encode | downcase}}.html'>{{ tag }}</a></li>
