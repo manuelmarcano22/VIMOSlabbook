@@ -37,7 +37,7 @@ plot = figure()
 plot.circle([1,2], [3,4])
 
 #Js is a js file that provides data for the plot and the tag is the tag to include in the html document.
-js, tag = autoload_static(plot, CDN, "{[site.baseurl}}/images/bokehgraphs/"+name+".js")
+js, tag = autoload_static(plot, CDN, "{{site.baseurl}}/images/bokehgraphs/"+name+".js")
 
 ##To save it in files
 with open(name+'.js','w') as jsfile:
@@ -75,5 +75,62 @@ The output is:
     data-bokeh-model-id="60f28dc8-0f87-48c3-9143-a19cac57a213"
     data-bokeh-doc-id="4db13c27-df1f-4859-b48e-332b7b666604"
 ></script>
+
+
+
+### Boxcar Smooth
+
+IRAF very useful smooth function applies a boxcar smooth. A nice short reference is in [here](http://joseph-long.com/writing/AstroPy-boxcar/). This is using the astropy functions:
+
+`from astropy.convolution import convolve, Box1DKernel`
+
+Following the example [here](https://demo.bokehplots.com/apps/sliders) and [here](https://github.com/bokeh/bokeh/blob/master/examples/app/sliders.py) I can try to have it in bokeh. The only ploblem is that to generate the static html and js the widget I think needs to be written in JS and you have to pass a ColumnDataSource. One easy, but not efficient way is to create several Data sets. It does the work but could be more efficient. Also to get back to the unsmooth one needs to refresh the whole page.  
+
+{% highlight python %}
+source3 = ColumnDataSource(data=dict(x=x,y=ysmooth3))
+source5 = ColumnDataSource(data=dict(x=x,y=ysmooth5))
+
+plot = figure(x_axis_label='Angstrom', y_axis_label='Y')
+plot.add_tools(hover)
+plot.add_tools(tools.ResizeTool())
+#Eraaseplot.line(xlist,secondstar)
+plot.line('x','y',source=source)
+
+##Callback in JS
+callback = CustomJS(args=dict(source=source,source3=source3,source5=source5), code="""
+        var data = source.data;
+        var data3 = source3.data;
+        var data5 = source5.data;
+        var f = cb_obj.value
+        y = data['y']
+        y3 = data3['y']
+        y5 = data5['y']
+        
+        if (f == 3.0){
+        for (i = 0; i < y.length; i++) {
+            y[i] = y3[i]
+        }
+        }
+        
+        if (f == 5.0){
+        for (i = 0; i < y.length; i++) {
+            y[i] = y5[i]
+        }
+        }
+        source.trigger('change');
+    """)
+
+
+#Set up slider
+slider = Slider(title="Smooth Curve", value=1.0, start=1.0, end=5.0, step=2.0,callback=callback)
+
+layout = column(slider, plot)
+output_file(name+'try.html')
+{% endhighlight %}
+
+
+
+
+
 
 
