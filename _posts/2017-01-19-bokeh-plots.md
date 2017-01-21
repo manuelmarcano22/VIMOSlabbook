@@ -121,7 +121,7 @@ callback = CustomJS(args=dict(source=source,source3=source3,source5=source5), co
     """)
 
 
-#Set up slider
+# Set up slider
 slider = Slider(title="Smooth Curve", value=1.0, start=1.0, end=5.0, step=2.0,callback=callback)
 
 layout = column(slider, plot)
@@ -130,6 +130,12 @@ output_file(name+'try.html')
 
 
 
+# Javascript 
+
+
+For javascript there are some interesting libraries like [JS9](http://js9.si.edu/) to display astronomical image in your browser. 
+
+And [Numeric Javascript](http://www.numericjs.com/)
 
 
 
