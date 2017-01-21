@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bokeh Plots"
+title: "Bokeh Plots and JS9"
 categories: [log]
 tags: [bokeh,plot, spectra, interactive]
 ---
@@ -132,16 +132,18 @@ output_file(name+'try.html')
 
 # Javascript 
 
+For javascript there are some interesting libraries like [JS9](http://js9.si.edu/) to display astronomical image in your browser and [Numeric Javascript](http://www.numericjs.com/) for 
 
-For javascript there are some interesting libraries like [JS9](http://js9.si.edu/) to display astronomical image in your browser. 
 
-And [Numeric Javascript](http://www.numericjs.com/)
+## JS9 Demo: the basics
 
-<center><font size="+1"><b>JS9 Demo: the basics</b></font></center>    
+The menubar does not work, but the image can be control via the [JS9 Public API](http://js9.si.edu/js9/help/publicapi.html). This can be called from the console using firefox or google. Or using the js9 console below. One example with custom made buttons using the API is found [here](http://js9.si.edu/js9/js9bespoke.html).
+
+
 <table cellspacing="15">
 <tr valign="top">
 <td>
-PNG files (converted from FITS):
+PNG files from FITS:
 <ul>
 <li> <a href='javascript:JS9.Load("{{site.baseurl}}/images/png/m13.png", {scale:"linear", colormap:"sls"});'>m13 (via SkyView)</a>
 </ul>
@@ -155,7 +157,9 @@ FITS images and binary tables:
 </td>
 </tr>
 </table>
-<div class="JS9Menubar"></div>
-<div class="JS9"></div>
-<!--<div style="margin-top: 2px;">-->
-<div class="JS9Colorbar"></div>
+<!--<div class="JS9Menubar"></div>-->
+<!--<div class="JS9"></div>-->
+<!--<div class="JS9Colorbar"></div>-->
+<div class="JS9" id="myJS9" ></div>
+<!--data-width="300px" data-height="300px"></div>-->
+<div class="JS9Console" id="myJS9Console" ></div>
