@@ -138,5 +138,14 @@ For javascript there are some interesting libraries like [JS9](http://js9.si.edu
 And [Numeric Javascript](http://www.numericjs.com/)
 
 
-
+<div class="JS9Menubar"></div>
+<div class="JS9"></div>
+<div style="margin-top: 2px;"><div class="JS9Colorbar"></div></div>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#centerdiv").draggable({
+    handle: "#JS9Menubar"
+  });
+});
+</script>
 
