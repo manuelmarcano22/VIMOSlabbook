@@ -137,7 +137,7 @@ For javascript there are some interesting libraries like [JS9](http://js9.si.edu
 
 ## JS9 Demo: the basics
 
-The menubar does not work, but the image can be control via the [JS9 Public API](http://js9.si.edu/js9/help/publicapi.html). The API can be called from the console using firefox or google. Or using the js9 console below. One example with custom made buttons using the API is found [here](http://js9.si.edu/js9/js9bespoke.html).
+The menubar does not work, but the image can be control via the [JS9 Public API](http://js9.si.edu/js9/help/publicapi.html). The API can be called from the console using firefox or google. Or using the js9 console below. One example with custom made buttons using the API is found [here](http://js9.si.edu/js9/js9bespoke.html) and in the Cx0065 here. 
 
 
 <table cellspacing="15">
