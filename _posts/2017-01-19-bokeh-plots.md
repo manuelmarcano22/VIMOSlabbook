@@ -137,7 +137,7 @@ For javascript there are some interesting libraries like [JS9](http://js9.si.edu
 
 ## JS9 Demo: the basics
 
-The menubar does not work, but the image can be control via the [JS9 Public API](http://js9.si.edu/js9/help/publicapi.html). This can be called from the console using firefox or google. Or using the js9 console below. One example with custom made buttons using the API is found [here](http://js9.si.edu/js9/js9bespoke.html).
+The menubar does not work, but the image can be control via the [JS9 Public API](http://js9.si.edu/js9/help/publicapi.html). The API can be called from the console using firefox or google. Or using the js9 console below. One example with custom made buttons using the API is found [here](http://js9.si.edu/js9/js9bespoke.html).
 
 
 <table cellspacing="15">
@@ -151,7 +151,7 @@ PNG files from FITS:
 <td>
 FITS images and binary tables:
 <ul>
-<li> <a href='javascript:JS9.Load("{{site.baseurl}}/images/fits/cx25.fits", {scale:"linear"});'>CX0025</a>
+<li> <a href='javascript:JS9.Load("{{site.baseurl}}/images/fits/cx25.fits", {scale:"log"});'>CX0025</a>
 <li> <a href='javascript:JS9.LoadRegions("{{site.baseurl}}/images/regions/cx25.reg");'>Region fileCX0025</a>
 </ul>
 </td>
