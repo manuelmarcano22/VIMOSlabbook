@@ -11,9 +11,7 @@ tags: [data, spectra,apall, vimx, dbus,iraf, pyraf,SEXM,SRFM]
 I was having problems with matplotlib. It was a problem with the dbus. I found the solution [here](http://www.torkwrench.com/2012/12/16/d-bus-library-appears-to-be-incorrectly-set-up-failed-to-read-machine-uuid-failed-to-open-varlibdbusmachine-id/). It was doing:
 
 
-{% highlight bash %}
-root@container#dbus-uuidgen >/etc/machine-id
-{% endhighlight %}
+`root@container#dbus-uuidgen >/etc/machine-id`
 
 For some people it was 
 
