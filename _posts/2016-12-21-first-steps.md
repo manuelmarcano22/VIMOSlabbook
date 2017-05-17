@@ -21,6 +21,12 @@ Several multiwavelength follow-up have been done. For example in the radio match
 
 Also an optical spectroscopic survey have been on going with instruments like the **Visible Multi-Object Spectrograph (VIMOS)**. This is the data I will be working with.
 
+## The catalog 
+
+[Here](http://iopscience.iop.org/0067-0049/194/2/18/suppdata/apjs386787t3_mrt.txt). 
+
+
+
 ## Visible Multi-Object Spectrograph (VIMOS)
 
 From the ESO [instrument description](http://www.eso.org/sci/facilities/paranal/instruments/vimos.html):
