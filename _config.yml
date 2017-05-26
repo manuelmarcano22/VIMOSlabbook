@@ -8,7 +8,7 @@
 # Site settings
 description: > # this means to ignore newlines until "baseurl:"
         This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
-baseurl: "/VIMOSlabbook16"
+baseurl: "/VIMOSlabbook"
 gems:
   - jekyll-pandoc
   - jekyll-archives
@@ -39,6 +39,6 @@ author:
   givenName: Manuel
   familyName: Pichardo M
   github: manuelmarcano22
-title: Lab Notebook for VIMOS Data Reduction Fall 2016 TTU
-name: Lab Notebook for VIMOS Data Reduction Spring 2016 TTU
+title: Lab Notebook for VIMOS Data Reduction starting Fall 2016 TTU
+name: Lab Notebook for VIMOS Data Reduction starting Fall 2016 TTU
 email: manuel.pichardo-marcano@ttu.edu
