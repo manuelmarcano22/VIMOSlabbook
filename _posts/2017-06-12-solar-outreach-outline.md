@@ -62,13 +62,22 @@ https://beta3.helioviewer.org/?date=2016-05-09T13:43:29.000Z&imageScale=2.420440
 http://www.youtube.com/watch?v=oInoNnPsxcA&feature=youtu.be
 
 
+- Many sunspots and polarity
+https://beta3.helioviewer.org/?date=2010-12-03T13:32:24.000Z&imageScale=38.72705408&centerX=8210.13546496&centerY=0&imageLayers=%5BSOHO,LASCO,C3,white-light,1,100%5D&eventLayers=&eventLabels=true
+
+
+
 - Beginning ot eh 25 Cycle:
 https://beta3.helioviewer.org/?date=2016-12-21T01:07:03.000Z&imageScale=3.42044088&centerX=-133.44689506027345&centerY=-50.66793514986328&imageLayers=%5BSDO,HMI,continuum,1,100%5D&eventLayers=&eventLabels=true
 
 - Begining 24 Cycle:
 https://beta3.helioviewer.org/?date=2008-01-04T11:28:03.000Z&imageScale=1.21022044&centerX=-229.9418836&centerY=-390.2960919&imageLayers=%5BSOHO,MDI,magnetogram,1,100%5D&eventLayers=&eventLabels=true
 
+- Size of Loop and explotion. Make video
+https://beta3.helioviewer.org/?date=2012-07-06T23:03:21.000Z&imageScale=1.21022044&centerX=643.83727408&centerY=225.70611206&imageLayers=%5BSDO,AIA,304,1,100%5D&eventLayers=&eventLabels=true
 
+- YOutube:
+https://youtu.be/6MWL_gQVWQk
 
 - Hallowwen strom SUn:
 https://beta3.helioviewer.org/?date=2003-10-27T13:07:03.000Z&imageScale=4.84088176&centerX=-435.6793584&centerY=319.49819616&imageLayers=%5BSOHO,EIT,171,1,100%5D&eventLayers=&eventLabels=true
