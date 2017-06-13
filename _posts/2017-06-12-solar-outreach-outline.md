@@ -63,8 +63,7 @@ http://www.youtube.com/watch?v=oInoNnPsxcA&feature=youtu.be
 
 
 - Many sunspots and polarity
-https://beta3.helioviewer.org/?date=2010-12-03T13:32:24.000Z&imageScale=38.72705408&centerX=8210.13546496&centerY=0&imageLayers=%5BSOHO,LASCO,C3,white-light,1,100%5D&eventLayers=&eventLabels=true
-
+https://beta3.helioviewer.org/?date=2011-11-09T13:32:24.000Z&imageScale=2.42044088&centerX=-275.93026032&centerY=-302.55511&imageLayers=%5BSDO,HMI,continuum,1,100%5D&eventLayers=&eventLabels=true
 
 
 - Beginning ot eh 25 Cycle:
