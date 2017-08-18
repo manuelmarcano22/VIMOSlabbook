@@ -48,6 +48,20 @@ with open(name+'.html','w') as htmlfile:
 {% endhighlight %}
 
 
+For the jupyter notebooks and to include them in the Jekyll notebook:
+
+`js, tag = autoload_static(p, CDN, "{{site.baseurl}}/css/cx25.js")`
+
+Then download the .js file. To get the links
+
+
+{% highlight python linenos %}
+from IPython.display import FileLink, FileLinks
+FileLinks('.') #lists all downloadable files on server
+{% endhighlight %}
+
+
+
 ### Bokeh and Docker
 
 In the docker container can create an html as output and if the docker container was created exposing a port with the `-p 8888:8888` for example can create a simple HTTP server with python (`python -m SimpleHTTPServer 8888`)and preview the Bokeh plot in localhost at the specified port.  
