@@ -5,8 +5,8 @@ git commit -m "Base Sources :octocat:"
 git push -f origin master
 cd _site
 touch .nojekyll
-git init
-git remote add origin https://github.com/manuelmarcano22/VIMOSlabbook16.git
+#git init
+#git remote add origin https://github.com/manuelmarcano22/VIMOSlabbook16.git
 git checkout -b gh-pages
 git add -A
 git commit -am "Build :octocat:"
