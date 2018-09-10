@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lab Notebook for VIMOS Data Reduction at TTU</title>
+    <description>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</description>
+    <link>/VIMOSlabbook/</link>
+    <atom:link href="/VIMOSlabbook/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 10 Sep 2018 14:12:07 -0500</pubDate>
+    <lastBuildDate>Mon, 10 Sep 2018 14:12:07 -0500</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>NGC6652 data</title>
+        <description>&lt;h1 id=&quot;vimos&quot;&gt;VIMOS&lt;/h1&gt;
+&lt;p&gt;From &lt;a href=&quot;http://www.eso.org/sci/facilities/paranal/instruments/vimos/doc/VLT-MAN-ESO-14610-3509_v92.pdf&quot;&gt;VIMOS User Manual VLT-MAN-ESO-14610-3509&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Due to the offset position of IFU with respect to the center, the keywords RA and DEC in the headers do not refer to the IFU pointing, but rather to the center of the VIMOS FoV. Prior to P91 the only way to determine the actual position of the IFU was using the center coordinates, together with the IFU offset position, coded in the keywords ”HIERARCH ESO OCS CON WCS IFUCENX”, and ”HIERARCH ESO OCS CON WCS IFUCENY”, and the PA on sky (after some spherical trigonometry). This was needed because the only other relevant information on the headers was ”HIERARCH ESO TEL TARG ALPHA”, and ”HIERARCH ESO TEL TARG DELTA”, which contained the coordinates of the target. Any offsets from the original pointing would result in an IFU pointing that would differ from these keywords. Starting in P91 the relevant header keywords which contain the information of the actual pointing of the IFU are ”HIERARCH ESO INS IFU RA” and ”HIERARCH ESO INS IFU DEC”. Notice that the whole ESO archive of IFU data has been retro-fitted with these keywords, so now it is possible to search for IFU observations simply queryng by target coordinates.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I think PA is position angle. There is a line in the header with:&lt;/p&gt;
+&lt;p&gt;HIERARCH ESO ADA POSANG = 0.00000 / Position angle at start&lt;/p&gt;
+&lt;h1 id=&quot;ngc-6652&quot;&gt;NGC 6652&lt;/h1&gt;
+&lt;p&gt;The cube extraction might have been done wrong. To recheck download the data raw data gain. Anna suggested to include the OB name to be displayed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OB Name&lt;/strong&gt;: Enter the name of the Observation Block itself, if known&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There seem to be NGC-66652-A-[1-4] and NGC-6652-B-[1-5] and NGC-6652-C+D&lt;/p&gt;
+&lt;p&gt;Each observation set seems to come in group of four, probably the four quadrants, and two quadrant separated by a few seconds and then the other two quadrants separated by about 30 seconeds from the other two, except for B-5 for now. From the archive can tell it to downlooad the associated calibration files. It will detect them and tell oyu the names and if they are complete. Can access the request via the email they send to my yahoo email.&lt;/p&gt;
+&lt;p&gt;Order of 1,4,2,3 quadrant so far&lt;/p&gt;
+&lt;h2 id=&quot;ngc-6652-b-1&quot;&gt;NGC 6652 B-1&lt;/h2&gt;
+&lt;p&gt;It has 8 science exposrues, so two set of observations. The log files says the following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nightlog information for file VIMOS.2003-06-04T05:39:22.788 &lt;br/&gt; OB grade: B)Mostly within specifications &lt;br/&gt; Comment: Extremely difficult identify the field requested on the deep B images provided by the user. Relative position of the IFU pointing measured from the center of the cluster. The seeing conditions have be&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;              Requested    Fulfilled?
+Seeing:           1.20          Almost
+Airmass:          1.50          Yes
+Moon Distance:    90          Yes
+Sky Transparency: 3THN          Yes
+Strehl Ratio:     0.000          N/A&lt;/code&gt;&lt;/pre&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/completeB1p1.png&quot; alt=&quot;Complete B1 two quadrants part 1&quot; /&gt;&lt;figcaption&gt;Complete B1 two quadrants part 1&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;From the archive downloaded the data with the OB name NGC-6652-1. It is in the folder &lt;code&gt;~/Documents/VIMOS/NGC6652/data/NGC6652B1&lt;/code&gt;. Will create a raw data folder, scripts folder&lt;/p&gt;
+&lt;p&gt;First step is to extract the .fits.Z files. The extractZfiles notebook does that&lt;/p&gt;
+&lt;h1 id=&quot;reflex-try&quot;&gt;Reflex try&lt;/h1&gt;
+&lt;p&gt;Will try to install reflex and try it.&lt;/p&gt;
+&lt;p&gt;The first two work bu the last two complains about not having enough bias for the Median reduction. Try to see how the master bias for the first two was created. Either wat we get an error in the astrometry.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Try to see how the first wo were created then to the same manually to the third and fourth. Weird the bias not working for them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And it suddenly worked.&lt;/p&gt;
+&lt;h1 id=&quot;ngc6652-b-2&quot;&gt;NGC6652 B-2&lt;/h1&gt;
+&lt;p&gt;It has 16 total science exposures. So 4 sets of observations. For the first four the log file said that the observation sohuld be repeated:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nightlog information for file VIMOS.2003-06-22T02:18:42.136 &lt;br/&gt; OB grade: C)Out of specs - Repeat &lt;br /&gt; Comment: tried to center by Guidecam - had to offset 22&amp;quot; north - was not confirmed by reconstructed image - pointing most probably crap&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;              Requested    Fulfilled?
+Seeing:           1.20          Yes
+Airmass:          1.50          Yes
+Moon Distance:    90          Yes
+Sky Transparency: 3THN          Yes
+Strehl Ratio:     0.000          N/A&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the rest the LMXB should be in the field:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nightlog information for file VIMOS.2003-06-22T03:36:05.268 &lt;br/&gt; OB grade: B)Mostly within specifications &lt;br/&gt; Comment: no pointing correction done - from reconstructed image it seems offset by ~5“, but LMXB should be in the field&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For the set of observation VIMOS.2003-06-22T02:40:26.08[5-6] and VIMOS.2003-06-22T02:40:57.40[4-5]&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/completeB2p1.png&quot; alt=&quot;Complete B2 two quadrants part 1&quot; /&gt;&lt;figcaption&gt;Complete B2 two quadrants part 1&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/completeB2p1.png&quot; alt=&quot;Complete B2 two quadrants part 2&quot; /&gt;&lt;figcaption&gt;Complete B2 two quadrants part 2&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h1 id=&quot;ngc6652-b-3&quot;&gt;NGC6652 B-3&lt;/h1&gt;
+&lt;p&gt;It has 8 total science exposures. Two sets of 4&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/completeB3.png&quot; alt=&quot;Complete B3 Sample&quot; /&gt;&lt;figcaption&gt;Complete B3 Sample&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The logs files say the following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nightlog information for file VIMOS.2003-06-22T06:40:54.318 &lt;br/&gt; OB grade: B)Mostly within specifications &lt;br/&gt; Comment: corrected pointing to 5&amp;quot; south - seeing on guide probe was ~1.2&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;              Requested    Fulfilled?
+              Seeing:           1.20          Almost
+              Airmass:          1.50          Yes
+              Moon Distance:    90          Yes
+              Sky Transparency: 3THN          Yes
+              Strehl Ratio:     0.000          N/A&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;ngc6652-b-4&quot;&gt;NGC6652 B-4&lt;/h1&gt;
+&lt;p&gt;It has two three sets of observation and according to the request they are all complete. THe first one was a repeat. The log for the first one says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nightlog information for file VIMOS.2003-06-24T04:24:10.847 &lt;br/&gt; OB grade: C)Out of specs - Repeat &lt;br/&gt; Comment: Pointing off by 4-5&amp;quot; south (given a 13“x13” field) - user’s source is at edge of field, could still be useful but will be repeated&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And for the other two:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OB grade: B)Mostly within specifications &lt;br/&gt; Comment: seeing on guide probe much better (&amp;lt;1.0“) than on DIMM&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Only arch Spectrum change from NGCB5 calibration files&lt;/p&gt;
+&lt;h1 id=&quot;ngc6652-b-5&quot;&gt;NGC6652 B-5&lt;/h1&gt;
+&lt;p&gt;They are not separate by even a second.&lt;/p&gt;
+&lt;p&gt;Two sets of four. The observation logs say:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nightlog information for file VIMOS.2003-06-24T05:47:09.495 &lt;br/&gt; OB grade: A)Fully within specifications&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And according to the request page they are all complete.&lt;/p&gt;
+&lt;h3 id=&quot;first-try-with-reflex&quot;&gt;First try with Reflex&lt;/h3&gt;
+&lt;p&gt;It says it is missing CCD table and aslo STD_FLUX_TABLE. That is weird because in the request it says they are complete. I will try to reduce it in reflex to see how they look and then manually.&lt;/p&gt;
+&lt;p&gt;Work. Each notebook how I did each quadrant and for theother time just in one. Basically each quadrant as a bias, line catalgo, std flux, cand all that. For the first second time just neeeded to change the IFU_science to reduce.&lt;/p&gt;
+&lt;p&gt;15,13 something in the first time. Astreometry still shitty.&lt;/p&gt;
+&lt;h2 id=&quot;skylines&quot;&gt;Skylines&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?1996PASP..108..277O&amp;amp;data_type=PDF_HIGH&amp;amp;whole_paper=YES&amp;amp;type=PRINTER&amp;amp;filetype=.pdf&quot;&gt;OH and O2 lines&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.gemini.edu/sciops/instruments/nearir-resources/wavelength-calibration&quot;&gt;Gemini&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Aug 2018 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2018/08/30/ngc6652-data-1.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2018/08/30/ngc6652-data-1.html</guid>
+        
+        <category>spectra</category>
+        
+        <category>ngc6652</category>
+        
+        <category>vimos</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>SEGUE</title>
+        <description>&lt;h1 id=&quot;line-index-measurement-in-sspp-sspp&quot;&gt;&lt;a href=&quot;http://www.sdss.org/dr14/spectro/sspp_lineindexmeas/&quot;&gt;Line Index Measurement in SSPP – SSPP&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;contains-outputs-from-the-segue-stellar-parameter-pipeline-sspp&quot;&gt;&lt;a href=&quot;http://skyserver.sdss.org/dr14/en/help/browser/browser.aspx#&amp;amp;&amp;amp;history=description+sppLines+U&quot;&gt;Contains outputs from the SEGUE Stellar Parameter Pipeline (SSPP)&lt;/a&gt;&lt;/h2&gt;
+</description>
+        <pubDate>Thu, 29 Mar 2018 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2018/03/29/segue.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2018/03/29/segue.html</guid>
+        
+        <category>SEGUE</category>
+        
+        <category>SDSS</category>
+        
+        <category>spectra</category>
+        
+        <category>line index</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>Too Many Files Open</title>
+        <description>&lt;h1 id=&quot;fitting-lines-to-many-spectra.&quot;&gt;Fitting lines to many spectra.&lt;/h1&gt;
+&lt;p&gt;Trying to fit the lines to a lot of spectra from SDSS I was getting the following error:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;IOError: [Errno 24] Too many open files&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;About this issue the FAQ of Astropy says:&lt;/p&gt;
+&lt;h3 id=&quot;im-opening-many-fits-files-in-a-loop-and-getting-oserror-too-many-open-files&quot;&gt;&lt;a href=&quot;http://docs.astropy.org/en/stable/io/fits/appendix/faq.html#i-m-opening-many-fits-files-in-a-loop-and-getting-oserror-too-many-open-files&quot;&gt;I’m opening many FITS files in a loop and getting OSError: Too many open files&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As explained in the note on &lt;a href=&quot;http://docs.astropy.org/en/stable/io/fits/index.html#fits-large-files&quot;&gt;working with large files&lt;/a&gt;, because Astropy uses mmap by default to read the data in a FITS file, even if you correctly close a file with HDUList.close a handle is kept open to that file so that the memory-mapped data array can still be continued to be read transparently.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I tried with gc.collect and deleting the variable that manps to the fit and it didn’t work. At the end I had to simply open the fit file with the opton &lt;code&gt;memmap=False&lt;/code&gt;. I am not sure this was the optimal solution to the problem but it works.&lt;/p&gt;
+&lt;p&gt;In the documentation it says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In order to force the mmap to close either wait for the containing HDUList object to go out of scope, or manually call del hdul[0].data (this works so long as there are no other references held to the data array).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So maybe I have to just try harder to do it this way instead of the easy solution of memmap=False.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Mar 2018 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2018/03/12/too-many-files-open.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2018/03/12/too-many-files-open.html</guid>
+        
+        <category>astropy</category>
+        
+        <category>fits</category>
+        
+        <category>python</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>Deeming 1963 PCA to Stellar Spectra</title>
+        <description>&lt;h1 id=&quot;deeming-1963-stellar-spectral-classification&quot;&gt;Deeming 1963 Stellar Spectral Classification&lt;/h1&gt;
+&lt;h2 id=&quot;i.-application-of-component-analysis&quot;&gt;I. Application of Component Analysis&lt;/h2&gt;
+&lt;h1 id=&quot;selection-criterium&quot;&gt;Selection criterium&lt;/h1&gt;
+&lt;p&gt;From SEGUE S/N &amp;gt; 10&lt;/p&gt;
+</description>
+        <pubDate>Mon, 12 Mar 2018 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2018/03/12/deeming-1963-pca-to-stellar-spectra.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2018/03/12/deeming-1963-pca-to-stellar-spectra.html</guid>
+        
+        <category>pca</category>
+        
+        <category>paper</category>
+        
+        <category>classificatio</category>
+        
+        <category>spectra</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>SDSS data</title>
+        <description>&lt;h1 id=&quot;dowload-data&quot;&gt;Dowload data&lt;/h1&gt;
+&lt;p&gt;Download from &lt;a href=&quot;https://www.sdss.org/dr14/data_access/bulk/#OpticalSpectraPer-ObjectFiles&quot;&gt;Optical Spectra Catalog Data&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It says that:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Catalogs of parameters derived from the SDSS/BOSS/SEQUELS/eBOSS optical spectra and matched to photometric data are documented on the optical spectra data page. These can be directly downloaded from the links on that page, or via wget commands. For example, to download the redshifts and classifications of all SDSS spectra (4.5 GB)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span class=&quot;fu&quot;&gt;wget&lt;/span&gt; --spider https://data.sdss.org/sas/dr14/sdss/spectro/redux/specObj-dr14.fits&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;astropy.io&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fits&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;specObj-dr14.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# The second extension is the table&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;This displays the header and we get for each column (133 total colums) of the table. The zeroth is the survey and the 68th and 69th are CLASS and SUBCLASS.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CLASS Best spectroscopic classification (“STAR”, “GALAXY” or “QSO”)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SUBCLASS Best spectroscopic subclassification&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To access it do:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;GALAXY&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;GALAXY&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;BROADLINE&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;GALAXY&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;STARBURST&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;GALAXY&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;STARFORMING&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;QSO&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;QSO&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;BROADLINE&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;A0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;A0p&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;CV&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;F2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;F5&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;F9&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;G2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;L5.5&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;M6&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;OB&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;STAR&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;WD&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# To find an specific CLASS or SUBCLASS can do&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;a0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;A0&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;#or&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;A0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#file to download&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;A0&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#Create a file&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;listA0.txt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;A0&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;#Need this for boss and eboss url&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;boss&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;survey&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;eboss&amp;#39;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;survey&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;https://dr14.sdss.org/sas/dr14/{survey}/spectro/redux/{run2d}/spectra/{plate:04d}/spec-{plate:04d}-{mjd}-{fiber:04d}.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;survey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;survey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run2d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;61&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mjd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;63&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fiber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;Plate is 61, MJD is 63, Fiber ID is 64, survey is 0 and RUN2D is 28.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;https://dr14.sdss.org/sas/dr14/{survey}/spectro/redux/{run2d}/spectra/{plate:04d}/spec-{plate:04d}-{mjd}-{fiber:04d}.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;survey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run2d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;61&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mjd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;63&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fiber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;Still doesn’t work. Need to fill the numbers with zeros. PLATE and FIBERID need to be zero-padded.&lt;/p&gt;
+&lt;h2 id=&quot;optical-api-arguments&quot;&gt;&lt;a href=&quot;https://dr14.sdss.org/optical/spectrum/view/data/access&quot;&gt;Optical API Arguments&lt;/a&gt;:&lt;/h2&gt;
+&lt;p&gt;You may download lite or full version of the spectrum directly by using the URL of the flat file on the SAS:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://dr14.sdss.org/sas/dr14/SURVEY/spectro/redux/RUN2D/spectra/SPEC/PLATE4/spec-PLATE4-MJD-FIBERID4.fit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SURVEY&lt;/strong&gt; Should be replaced by the appropriate survey (currently either ‘sdss’ for DR8, ‘boss’ for DR9 through DR12, or ‘eboss’ for DR13 and later)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RUN2D&lt;/strong&gt; Should be replaced by the reduction number.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PLATE4&lt;/strong&gt; Should be replaced by the zero-padded, 4-digit plate number.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MJD&lt;/strong&gt; Should be replaced by the MJD number.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FIBERID4&lt;/strong&gt; Should be replaced by the zero-padded, 4-digit fiber number.&lt;/p&gt;
+&lt;h2 id=&quot;the-fits-file&quot;&gt;The FITS file&lt;/h2&gt;
+&lt;p&gt;After download the fits file. It has at least 4 HDUs: &lt;a href=&quot;https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spectra/PLATE4/spec.html&quot;&gt;datamodel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;One way to download is:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;spec-{plate:04d}-{mjd}-{fiber:04d}.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;survey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run2d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;61&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mjd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;63&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fiber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlretrieve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Or&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;subprocess&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Popen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;wget&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;-N&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;After downloading them to plot in python do:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;astropy.io&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fits&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;spec-0266-51630-0600.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;loglam&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;flux&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## To plot the model&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;loglam&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;model&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;                                    &lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The information about the CLASS and SUBCLASS is in the second HDU: &lt;code&gt;ob[2].data[&#39;CLASS&#39;]&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;sdss-data-in-iraf&quot;&gt;SDSS data in IRAF&lt;/h2&gt;
+&lt;p&gt;SDSS recommends in this &lt;a href=&quot;http://www.sdss.org/dr12/tutorials/iraf-tutorial/&quot;&gt;IRAF Tutorial&lt;/a&gt; to use the &lt;a href=&quot;http://www.stsci.edu/institute/software_hardware/tables&quot;&gt;STSDAS Tables&lt;/a&gt; package. Other way is to use python to write a text file of the SDSS table and them use &lt;a href=&quot;http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?rspectext&quot;&gt;rspectext&lt;/a&gt; to convert the 1D ascii text file to IRAF image spectra. After this can use splot to visualize the spectra. I had to use dtype=interp for rspectext since the tables don’t seem to have a single step value for the wavelenfths. Can try dtype=‘nonlinear’ but it takes a long time for splot to plot it. An example python/pyraf to convert the table to IRAF image spectra is below. Have to do in the folder mkiraf and have your uparm folder for the code to run. And have pyraf installed. Best way to do it is with Astroconda, but it only supports python2.7 at the moment.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;astropy.io&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fits&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pyraf&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iraf&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#filename = &amp;#39;spec-0266-51602-0051.fits&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;#import fits&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#Get data and save wavelenft in x, and flux on y&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;loglam&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;model&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#save to a .txt file&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;namenewfits&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;{name}.txt&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;namenewfits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;{}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#Create fits file from text file interpolation. &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iraffitsname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;iraf&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iraffitsname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iraffitsname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;.fits&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;iraf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onedspec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iraf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iraf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rspectext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;namenewfits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iraffitsname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;interp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;h1 id=&quot;line-index-measurement-in-sspp-sspp&quot;&gt;&lt;a href=&quot;http://www.sdss.org/dr14/spectro/sspp_lineindexmeas/&quot;&gt;Line Index Measurement in SSPP – SSPP&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;to-do&quot;&gt;TO Do&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Principal Component Analysis in SDSS data. &lt;a href=&quot;http://www.astroml.org/book_figures/chapter7/index.html&quot;&gt;Chatper 7&lt;/a&gt; of &lt;a href=&quot;http://www.astroml.org/index.html&quot;&gt;Machine Learning and Data Mining for Astronomy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 17 Jan 2018 00:00:00 -0600</pubDate>
+        <link>/VIMOSlabbook/log/2018/01/17/sdss-data.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2018/01/17/sdss-data.html</guid>
+        
+        <category>spectra</category>
+        
+        <category>sdss</category>
+        
+        <category>template</category>
+        
+        <category>python</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>CX59 Classification</title>
+        <description>&lt;p&gt;The &lt;a href=&quot;https://vimos.manuelpm.me/cx59&quot;&gt;folder&lt;/a&gt; with CX 59 has at least 4 sources in the same field: CX 572, CX 1033, two labeld with CX1032, and CX172. In the preimage left to right translate to decreasing y (top to bottom) in the SEXM. We have going from y equal 0 to 450:&lt;/p&gt;
+&lt;p&gt;By looking at the pre-image with the region file and the SEXM below or &lt;a href=&quot;https://vimos.manuelpm.me/cx59&quot;&gt;here&lt;/a&gt; I think:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CX 59: from 370 - 450. It is the section on the top of the SEXM. The brightest source in the field. It seems saturated.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CX572: 300 to 370&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CX1033: 230 to 300&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Pipeline star?&lt;/strong&gt;.:170-230 The closest is CX1032, but this fourth one from top to bottom maybe a star put by the pipeline? Has different dimensions.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CX1032: 80-170&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CX172: 0-80.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/cx59preimage.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/cx59sexm.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;!--![](/VIMOSlabbook/images/aperturescx59.png)--&gt;
+&lt;h1 id=&quot;cx59&quot;&gt;CX59&lt;/h1&gt;
+&lt;h2 id=&quot;information&quot;&gt;Information&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;Regarding CX59 &lt;span class=&quot;citation&quot; data-cites=&quot;TychoIdentification&quot;&gt;(Hynes et al. 2012)&lt;/span&gt; says in section 6.14:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;6.14. CX59 (CXOGBS J174500.5–261228) CX59 was matched with TYC 6832-663-1 with a quite large offset of 3.53 arcsec. This source was detected only 3 arcmin off-axis by Chandra with 27 photons, so there is no reason to expect such a large offset. This star has not been reported as a double, and the X-ray source is also the hardest of the sources considered here for which we can calculate a hardness ratio. We conclude that this is likely to be a chance alignment.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;From &lt;a href=&quot;http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%402494373&amp;amp;Name=CD-26%2012293&amp;amp;submit=submit&quot;&gt;Simbad&lt;/a&gt; it was classified as a A0, but this was done in 1939.&lt;/p&gt;
+&lt;h3 id=&quot;spectra&quot;&gt;Spectra:&lt;/h3&gt;
+&lt;p&gt;Extracted spectrum without normalizing:&lt;/p&gt;
+&lt;script
+    src=&quot;/VIMOSlabbook/images/bokehgraphs/cx59notnorm.js&quot;
+    id=&quot;86843a4d-7ec2-49b9-b287-4c1f942bbd52&quot;
+    data-bokeh-model-id=&quot;8b1891aa-bd7b-47a9-b5f4-ec7513d4c9f7&quot;
+    data-bokeh-doc-id=&quot;84f75ad8-1a1d-4683-8432-fc9840e88dd4&quot;
+&gt;&lt;/script&gt;
+&lt;h2 id=&quot;normalized-spectrum&quot;&gt;Normalized Spectrum&lt;/h2&gt;
+&lt;script
+    src=&quot;/VIMOSlabbook/images/bokehgraphs/cx59.js&quot;
+    id=&quot;ab66b99e-57ef-4e47-8d10-3c06e7b81725&quot;
+    data-bokeh-model-id=&quot;0157a18c-e04d-4ff8-bdc1-20b329450cdb&quot;
+    data-bokeh-doc-id=&quot;cd25848f-1723-4707-856a-3d20b6b71dbb&quot;
+&gt;&lt;/script&gt;
+&lt;h2 id=&quot;classification&quot;&gt;Classification&lt;/h2&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;SpectralClassBook&quot;&gt;(Gray and Corbally 2009)&lt;/span&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The blue-violet spectra of B-type stars are dominated by the Balmer lines of hydrogen and lines of neutral helium (He I). The some A0 stars show weak lines of He I. The Balmer lines strengthen thought the B-type stars into the A-type stars, coming to a maximum at a spectral type of A2 in the dwarfs. Lines of neutral helium first show up in the O-type stars, strengthen through the O-type stars, come to a maximum at B2, and then weaken toward cooler types, finally disappearing from classification spectra at a spectral type of about A0.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;andrillat1995&quot;&gt;(Andrillat, Jaschek, and Jaschek 1995)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;Regarding Supergiants:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“The general aspect of the spectra permits to single out easily the supergiants, which have narrow and sharp profiles. For instance OI 8446 lines is distinctly separated from P18, from B2 on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For other than supergiants:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using the Paschen lines: If there is a smooth, regular sequence in the depths of P18 to P12, the star is of type B. If P16, P15 and P13 stand out in the sequence, the star is of type A. This is due to the fact that each of these lines is blended with a Ca II line. In F-type stars the Ca lines are much larger than the lines of the Paschen series, which decrease with advancing spectral type. The Paschen lines become insignificant at type G. Furthermore in F-type stars the metallic lines become more numerous and stronger with advancing spectral type.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For stars earlier than B3 the Paschen region alone is incapable of fixing spectral type and luminosity. We recommend the use of He I 7065 line.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;andrillat1995&quot;&gt;(Andrillat, Jaschek, and Jaschek 1995)&lt;/span&gt; provide equivalent width of P14, P14/(P15+Ca), OI 8446, and 7065 HeI as a function of spectral type and luminosity class.&lt;/p&gt;
+&lt;p&gt;Regarding the Paschen series &lt;span class=&quot;citation&quot; data-cites=&quot;atlaslow93&quot;&gt;(Torres-Dodgen and Weaver 1993)&lt;/span&gt; say that:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Paschen area itself gives a good first approximation of spectral type for early type stars (O-F), especially for A stars. For early types, the PAschen area can distinguish supergiants from luminosity class V or III. The Paschen lines in the supergiants are much narrower than in giants or main-sequence stars, so more lines can be resolved in the series. In addition ,the O I &lt;span class=&quot;math inline&quot;&gt;\(\lambda8446\)&lt;/span&gt; line is a good indicator of luminosity, as is the Paschen jump (8207 A) in A and F stars. […] So is the Ca II &lt;span class=&quot;math inline&quot;&gt;\(\lambda 8498,8542, 8662\)&lt;/span&gt; triplet in A to M.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;andrillat1995-ew-relations&quot;&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;andrillat1995&quot;&gt;(Andrillat, Jaschek, and Jaschek 1995)&lt;/span&gt; EW relations&lt;/h2&gt;
+&lt;table width=&quot;500&quot; border=&quot;1&quot; cellpadding=&quot;5&quot;&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot; valign=&quot;center&quot;&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/fig14andrillat.png&quot; alt=&quot;description here&quot; /&gt; &lt;br /&gt;
+&lt;/td&gt;
+&lt;td align=&quot;center&quot; valign=&quot;center&quot;&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/fig15andrillat.png&quot; alt=&quot;description here&quot; /&gt; &lt;br /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot; valign=&quot;center&quot;&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/fig16andrillat.png&quot; alt=&quot;description here&quot; /&gt; &lt;br /&gt;
+&lt;/td&gt;
+&lt;td align=&quot;center&quot; valign=&quot;center&quot;&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/fig17andrillat.png&quot; alt=&quot;description here&quot; /&gt; &lt;br /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;equivalent-width-for-cx59&quot;&gt;Equivalent Width for CX59&lt;/h2&gt;
+&lt;h2 id=&quot;plotting-it&quot;&gt;Plotting it&lt;/h2&gt;
+&lt;p&gt;the line center, continuum intensity at the line center, the flux, and the equivalent width.&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode python&quot;&gt;&lt;code class=&quot;sourceCode python&quot;&gt;splot cx59ssem.ms.fits cursor&lt;span class=&quot;op&quot;&gt;=&lt;/span&gt;cur.cur save_file&lt;span class=&quot;op&quot;&gt;=&lt;/span&gt;cx59.log band&lt;span class=&quot;op&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;other-relevant-sources&quot;&gt;Other relevant sources:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;danks1994&quot;&gt;(Danks and Dennefeld 1994)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;Morgan43&quot;&gt;(Morgan, Keenan, and Kellman 1943)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h1&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+&lt;div id=&quot;ref-andrillat1995&quot;&gt;
+&lt;p&gt;Andrillat, Y., C. Jaschek, and M. Jaschek. 1995. “An atlas of the infrared spectral region. I. The early type stars (O-G0).” &lt;em&gt;Astronomy and Astrophysics Supplement&lt;/em&gt; 112 (September): 475.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-danks1994&quot;&gt;
+&lt;p&gt;Danks, A. C., and M. Dennefeld. 1994. “An atlas of southern MK standards from 5800 to 10200 A.” &lt;em&gt;Publications of the Astronomical Society of the Pacific&lt;/em&gt; 106 (April): 382–96. doi:&lt;a href=&quot;https://doi.org/10.1086/133390&quot;&gt;10.1086/133390&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-SpectralClassBook&quot;&gt;
+&lt;p&gt;Gray, R. O., and C. Corbally J. 2009. &lt;em&gt;Stellar Spectral Classification&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-TychoIdentification&quot;&gt;
+&lt;p&gt;Hynes, R. I., N. J. Wright, T. J. Maccarone, P. G. Jonker, S. Greiss, D. Steeghs, M. A. P. Torres, C. T. Britt, and G. Nelemans. 2012. “Identification of Galactic Bulge Survey X-Ray Sources with Tycho-2 Stars.” &lt;em&gt;The Astrophysical Journal&lt;/em&gt; 761 (December): 162. doi:&lt;a href=&quot;https://doi.org/10.1088/0004-637X/761/2/162&quot;&gt;10.1088/0004-637X/761/2/162&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-Morgan43&quot;&gt;
+&lt;p&gt;Morgan, W. W., P. C. Keenan, and E. Kellman. 1943. &lt;em&gt;An atlas of stellar spectra, with an outline of spectral classification&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-atlaslow93&quot;&gt;
+&lt;p&gt;Torres-Dodgen, Ana V., and W. B. Weaver. 1993. “An Atlas of Low-Resolution Near-Infrared Spectra of Normal Stars.” &lt;em&gt;Publications of the Astronomical Society of the Pacific&lt;/em&gt; 105 (689): 693. &lt;a href=&quot;http://stacks.iop.org/1538-3873/105/i=689/a=693&quot; class=&quot;uri&quot;&gt;http://stacks.iop.org/1538-3873/105/i=689/a=693&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 04 Oct 2017 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2017/10/04/cx59-classification.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2017/10/04/cx59-classification.html</guid>
+        
+        <category>CX59</category>
+        
+        <category>spectra</category>
+        
+        <category>classification</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>CX253,132,253,520</title>
+        <description>&lt;p&gt;In the folder anmed &lt;a href=&quot;https://vimos.manuelpm.me/cx253&quot;&gt;CX253&lt;/a&gt; there are 4 sources and 5 sections in the SEXM.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CX253: It is the brigtest one from 50 to 100. Maybe two sources? Can see at aperture 2499.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;cx253&quot;&gt;CX253:&lt;/h2&gt;
+&lt;p&gt;Possible red dwarf&lt;/p&gt;
+</description>
+        <pubDate>Wed, 31 May 2017 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2017/05/31/cx253,132,253,520.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2017/05/31/cx253,132,253,520.html</guid>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>CX191,706,701</title>
+        <description>&lt;p&gt;In the folder name &lt;a href=&quot;https://vimos.manuelpm.me/cx191&quot;&gt;CX191&lt;/a&gt;. There are two other sources close. Maybe left-rigt is top to bottom.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CX706: Only one bright source in the middle. Seems to be the section from 120 to 170.&lt;/li&gt;
+&lt;li&gt;CX701: It is the second one between 50 and 120&lt;/li&gt;
+&lt;li&gt;CX191: From 0 to 50. There are at least three stars in that section.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;cx191&quot;&gt;CX191&lt;/h1&gt;
+&lt;p&gt;In &lt;span class=&quot;citation&quot; data-cites=&quot;TychoIdentification&quot;&gt;(Hynes et al. 2012)&lt;/span&gt; it is mentioned CX191:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In performing our optical matches, we identified two cases where two of the X-ray sources appear to coincide with the same Tycho star. In both cases, the two X-ray sources were detected in different images, and one has a much larger off-axis angle than the other, and consequently less precise coordinates. In these cases, we believe that they are duplicate detections of the same source, with position differences just too large for Jonker et al. (2011) to have identified them as duplicates. &lt;strong&gt;The redundant sources are CX191&lt;/strong&gt;, which appears to have been an off-axis detection of CX360, and CX230, which appears to be an off-axis detection of CX33.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Also&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CX360 lies 4.07 arcsec from TYC 6840-525-1. &lt;strong&gt;CX191&lt;/strong&gt; also appears to be an off-axis detection of this source.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+&lt;div id=&quot;ref-TychoIdentification&quot;&gt;
+&lt;p&gt;Hynes, R. I., N. J. Wright, T. J. Maccarone, P. G. Jonker, S. Greiss, D. Steeghs, M. A. P. Torres, C. T. Britt, and G. Nelemans. 2012. “Identification of Galactic Bulge Survey X-Ray Sources with Tycho-2 Stars.” &lt;em&gt;The Astrophysical Journal&lt;/em&gt; 761 (December): 162. doi:&lt;a href=&quot;https://doi.org/10.1088/0004-637X/761/2/162&quot;&gt;10.1088/0004-637X/761/2/162&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 31 May 2017 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2017/05/31/cx191,706,701.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2017/05/31/cx191,706,701.html</guid>
+        
+        <category>vimos</category>
+        
+        <category>cx</category>
+        
+        <category>spectra</category>
+        
+        <category>information</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>CX 65</title>
+        <description>&lt;h3 id=&quot;srfm-and-pre-image&quot;&gt;SRFM and Pre-image&lt;/h3&gt;
+&lt;p&gt;Only one source. In the SEXM it seems that there are a total of 8 “sections” or slit. The bigger one (4th from top to bottom) is the relevant one with the source. There seems to be three apertures there. This is in agreement with what is shown in the pre-image. One very near the end of the slit, then one very bright and a third fainter one. From right to left the black sources (according to the preimage astrometry) are located at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;\(\alpha\)&lt;/span&gt; 17:51:35.2 &lt;span class=&quot;math inline&quot;&gt;\(\delta\)&lt;/span&gt; -28:43:47.18&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;\(\alpha\)&lt;/span&gt; 17:51:35.2 &lt;span class=&quot;math inline&quot;&gt;\(\delta\)&lt;/span&gt; -28:43:42.18&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;math inline&quot;&gt;\(\alpha\)&lt;/span&gt; 17:51:35.2 &lt;span class=&quot;math inline&quot;&gt;\(\delta\)&lt;/span&gt; -28:43:34.18&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/cx65preimage.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/cx65sexm.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;hr /&gt;
+&lt;h2 id=&quot;information&quot;&gt;Information&lt;/h2&gt;
+&lt;p&gt;From the &lt;a href=&quot;http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J/ApJS/194/18&quot;&gt;GBS X-ray source list&lt;/a&gt;. Info on Cx 65 also called &lt;a href=&quot;http://vizier.u-strasbg.fr/viz-bin/VizieR-5?-ref=VIZ5882891704be&amp;amp;-out.add=.&amp;amp;-source=J/ApJS/194/18/table3&amp;amp;recno=65&quot;&gt;CXOGBS J175135.2-284345&lt;/a&gt; with a total of &lt;strong&gt;24 counts&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%409738333&amp;amp;Name=OGLE%20BLG500.13%20%2014897&amp;amp;submit=submit&quot;&gt;Simbad&lt;/a&gt; it is a Variable of &lt;strong&gt;RS CVn type&lt;/strong&gt; also called &lt;strong&gt;OGLE BLG500.13 14897 &lt;/strong&gt;. Cited in a paper about optical counterpats to X-ray sources in the Galactic Bulge &lt;span class=&quot;citation&quot; data-cites=&quot;OGLEUdalski2012&quot;&gt;(Udalski et al. 2012)&lt;/span&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;rs-cvn-stars&quot;&gt;RS CVn stars&lt;/h4&gt;
+&lt;p&gt;Named after the prototype system RS CVn proposed by &lt;span class=&quot;citation&quot; data-cites=&quot;Hall1976&quot;&gt;(Hall 1976)&lt;/span&gt;. Some characteristics :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Close detached binaries with a G-K ro subgiant and as secondary dwarf G to M&lt;/li&gt;
+&lt;li&gt;Strong chromospheric activitty and coronal X-ray emission&lt;/li&gt;
+&lt;li&gt;Ca II H and K lines. (this are out of range for me)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;js9-fit-files&quot;&gt;JS9 Fit files&lt;/h2&gt;
+&lt;!-- TO load at loading time --&gt;
+&lt;table cellspacing=&quot;15&quot;&gt;
+&lt;tr valign=&quot;bottom&quot;&gt;
+&lt;td&gt;
+&lt;table cellspacing=&quot;3&quot;&gt;
+&lt;tr valign=&quot;bottom&quot;&gt;
+&lt;td colspan=&quot;4&quot;&gt;
+Choose a JS9 menu action to perform:
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr valign=&quot;top&quot;&gt;
+&lt;td&gt;
+zoom:
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;in&quot; class=&quot;zoom2&quot;&gt;
+zoom in
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;out&quot; class=&quot;zoom2&quot;&gt;
+zoom out
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr valign=&quot;top&quot;&gt;
+&lt;td&gt;
+zoom:
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;z1&quot; class=&quot;zoom&quot;&gt;
+zoom1
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;z2&quot; class=&quot;zoom&quot;&gt;
+zoom2
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;z4&quot; class=&quot;zoom&quot;&gt;
+zoom4
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr valign=&quot;top&quot;&gt;
+&lt;td&gt;
+scale:
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;log&quot; class=&quot;scale&quot;&gt;
+log
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;linear&quot; class=&quot;scale&quot;&gt;
+linear
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;squared&quot; class=&quot;scale&quot;&gt;
+squared
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr valign=&quot;top&quot;&gt;
+&lt;td&gt;
+cmap:
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;grey&quot; class=&quot;color&quot;&gt;
+grey
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;heat&quot; class=&quot;color&quot;&gt;
+heat
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;cool&quot; class=&quot;color&quot;&gt;
+cool
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr valign=&quot;top&quot;&gt;
+&lt;td&gt;
+regions:
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;circle&quot; class=&quot;region&quot;&gt;
+circle
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;box&quot; class=&quot;region&quot;&gt;
+box
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;button id=&quot;ellipse&quot; class=&quot;region&quot;&gt;
+ellipse
+&lt;/button&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr valign=&quot;top&quot;&gt;
+&lt;td&gt;
+Files:
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href=&#39;javascript:JS9.Load(&quot;/VIMOSlabbook/images/fits/preimagecx65.fits&quot;, {scale:&quot;log&quot;});&#39;&gt;1&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href=&#39;javascript:JS9.Load(&quot;/VIMOSlabbook/images/fits/SEXMcx65.fits&quot;, {scale:&quot;log&quot;});&#39;&gt;2&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a href=&#39;javascript:JS9.LoadRegions(&quot;/VIMOSlabbook/images/regions/cx65.reg&quot;);&#39;&gt;Region&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;td&gt;
+&lt;div class=&quot;JS9Panner&quot; data-width=&quot;200px&quot; data-height=&quot;200px&quot;&gt;
+
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class=&quot;JS9&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var click;
+if( &quot;ontouchstart&quot; in document.documentElement ){
+  click = &quot;touchstart&quot;;
+} else {
+  click = &quot;click&quot;;
+}
+$(&quot;.zoom&quot;).on(click, function(evt){
+  var s = $(evt.currentTarget).attr(&quot;id&quot;);
+  JS9.SetZoom(s.charAt(1));
+  return false;
+});
+
+$(&quot;.zoom2&quot;).on(click, function(evt){
+  var s = $(evt.currentTarget).attr(&quot;id&quot;);
+  var s2 = &quot;|1&quot;
+  JS9.SetZoom(s.concat(s2));
+  return false;
+});
+
+$(&quot;.scale&quot;).on(click, function(evt){
+  var s = $(evt.currentTarget).attr(&quot;id&quot;);
+  JS9.SetScale(s);
+  return false;
+});
+$(&quot;.color&quot;).on(click, function(evt){
+  var s = $(evt.currentTarget).attr(&quot;id&quot;);
+  JS9.SetColormap(s);
+  return false;
+});
+$(&quot;.region&quot;).on(click, function(evt){
+  var s = $(evt.currentTarget).attr(&quot;id&quot;);
+  JS9.AddRegions(s);
+  return false;
+});
+JS9.Panner.HTML = &quot;&quot;;
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+   function downloadJSAtOnload() {
+   JS9.Preload(&#39;/VIMOSlabbook/images/fits/preimagecx65.fits&#39;,{scale:&#39;log&#39;,onload: func})
+ }
+  if (window.addEventListener)
+      window.addEventListener(&quot;load&quot;, downloadJSAtOnload, false);
+  else if (window.attachEvent)
+      window.attachEvent(&quot;onload&quot;, downloadJSAtOnload);
+  else window.onload = downloadJSAtOnload;
+  function func() {
+  JS9.SetPan(500,2000);
+  JS9.LoadRegions(&quot;/VIMOSlabbook/images/regions/cx65.reg&quot;);
+  }
+&lt;/script&gt;
+&lt;div id=&quot;JS9Console&quot; class=&quot;JS9Console&quot;&gt;
+
+&lt;/div&gt;
+&lt;h1 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h1&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+&lt;div id=&quot;ref-Hall1976&quot;&gt;
+&lt;p&gt;Hall, D. S. 1976. “The RS CVn Binaries and Binaries with Similar PROPERTIÉS.” In &lt;em&gt;IAU Colloq. 29: Multiple Periodic Variable Stars&lt;/em&gt;, edited by W. S. Fitch, 60:287. Astrophysics and Space Science Library. doi:&lt;a href=&quot;https://doi.org/10.1007/978-94-010-1175-4_15&quot;&gt;10.1007/978-94-010-1175-4_15&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-OGLEUdalski2012&quot;&gt;
+&lt;p&gt;Udalski, A., K. Kowalczyk, I. Soszyński, R. Poleski, M. K. Szymański, M. Kubiak, G. Pietrzyński, et al. 2012. “The Optical Gravitational Lensing Experiment. Optical Counterparts to the X-ray Sources in the Galactic Bulge.” &lt;em&gt;Acta Astronomica&lt;/em&gt; 62 (June): 133–51.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 30 May 2017 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2017/05/30/CX65.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2017/05/30/CX65.html</guid>
+        
+        <category>iraf</category>
+        
+        <category>spectra</category>
+        
+        <category>cx65</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+      <item>
+        <title>Glossary</title>
+        <description>&lt;h2 id=&quot;morgan-keenan-system-mk-system&quot;&gt;Morgan-Keenan System (MK System)&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;Atlas of Stellar Spectra&lt;/em&gt; published in 1943 &lt;span class=&quot;citation&quot; data-cites=&quot;morgankeenan43&quot;&gt;(Morgan, Keenan, and Kellman 1943)&lt;/span&gt; established the two-dimensional Morgan-Keena system of spectral classification. In this system a &lt;strong&gt;Luminosity Class&lt;/strong&gt; ,designated by a Roman numeral, is appended to a star’s Harvard spectral type. The numeral I is resered to supergiants and V for Main-sequence star. According to &lt;span class=&quot;citation&quot; data-cites=&quot;carroll2007&quot;&gt;(Carroll and Ostlie 2007)&lt;/span&gt; the ratio of the strenghts of two closely spaced linesis often employed to place a star in the limunosity class.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In general, for stars of the same spectral type, narrower lines are usually produced by more luminous stars. This is because the atmospheres of more luminous stars are less dense, there are fewer collisions between atoms. Collisions can distort the energies of atomic orbitals, leading to broadening of the spectral lines. &lt;span class=&quot;citation&quot; data-cites=&quot;carroll2007&quot;&gt;(Carroll and Ostlie 2007)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;carroll2007&quot;&gt;(Carroll and Ostlie 2007)&lt;/span&gt;:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/VIMOSlabbook/images/lumclasses.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;rs-cvn-stars&quot;&gt;RS CVn stars&lt;/h2&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;starspot2005&quot;&gt;(Berdyugina 2005)&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;RS CVn stars represent a class of close detached binaries with the more massive primary component being a G–K giant or subgiant and the secondary a subgiant or dwarf of spectral classes G to M. They show optical variability (outside eclipses) which is characterised by an amplitude up to 0.6 mag in the V band and interpreted as the rotationally modulated effect of cool spots on their surfaces. Because of low luminosity of the secondary many RS CVn systems appear as single line binaries class which is attractive for spectral analysis. In binaries, where both components can be observed, the primary appears more active than the secondary.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Proposed by &lt;span class=&quot;citation&quot; data-cites=&quot;hall76&quot;&gt;(Hall 1976)&lt;/span&gt; with following signatures:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;photometric variability&lt;/li&gt;
+&lt;li&gt;Ca II H and K emission lines&lt;/li&gt;
+&lt;li&gt;subgiant component well within its Roche lobe&lt;/li&gt;
+&lt;li&gt;fast rotation, i.e. almost synchronised binaries with orbital periods of a few days&lt;/li&gt;
+&lt;li&gt;orbital period variations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thus, similar to other cool active stars, RS CVn-type variables are remarkable due to strong chromospheric plages, coronal X-ray, and microwave emissions, as well as strong flares in the optical, UV, radio, and X-ray. […] Large amplitude brightness variations of RS CVn stars imply the presence of enormous starspots on their surfaces covering up to 50% of the visible disc &lt;span class=&quot;citation&quot; data-cites=&quot;starspot2005&quot;&gt;(Berdyugina 2005)&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;About these &lt;span class=&quot;citation&quot; data-cites=&quot;SpectralClassBook&quot;&gt;(Gray and Corbally 2009)&lt;/span&gt; says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;fit among the late-type active stars: Their hotter component is F- or G-type and luminosity class V or IV. […] Often emission of &lt;span class=&quot;math inline&quot;&gt;\(H\alpha\)&lt;/span&gt;. There is an over weakening or veiling of lines including the Hydrogen one. not to to an abundance effect but to a non-normal temperature structure in its atmosphere.[…] Ex: determine type from line ratio of temperature-sensitive lines rather than from their absolute strength.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;g--and-k--type-stars&quot;&gt;G- and K- type stars&lt;/h2&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;SpectralClassBook&quot;&gt;(Gray and Corbally 2009)&lt;/span&gt; page 266 chapter 7, relevant for the VIMOS wavelength range:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;While early-G stars can be distinguished from late-G and K stars by the increase in absolute strength of the Fe I (8468,8514,8621,8688) and Ti I lines (8435), the disappearance of the Pascen series around G0 means that these hydrogen lines are not useful for ratios. The line Fe I 8621 stays fairly constant in dwarf stars over G-K types, but it is not near other strongly varying lines and so again is of little use. The ratio of Balmer &lt;span class=&quot;math inline&quot;&gt;\(H\alpha\)&lt;/span&gt; with a blend at &lt;span class=&quot;math inline&quot;&gt;\(\lambda 6497\)&lt;/span&gt; makes a good temperature discriminant.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;a-type-stars&quot;&gt;A-Type Stars&lt;/h2&gt;
+&lt;h3 id=&quot;infrared&quot;&gt;Infrared:&lt;/h3&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;SpectralClassBook&quot;&gt;(Gray and Corbally 2009)&lt;/span&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In the dwarf A-type stars, the outstanding spectral trend in this region is the changing appearance of the Paschen lines. In the early A-type stars, the Paschen lines are much stronger than the lines of the Ca II triplet, but in the later A-type stars, and in the F-type stars, the Ca II triplet begins to dominate. This leads to a distinctive pattern in which P13, P15, and P16 lines become increasingly strong relative to the neighboring unblended Paschen lines as one moves towards later types. In addition to this, the strenghts of the &lt;span class=&quot;math inline&quot;&gt;\(H\alpha\)&lt;/span&gt; line and the Paschen lines in general decrease with declining temperature. The O I triplet is fairly insensitive to temperature in the A-type stars.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Regarding main-sequence and supergiants:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Luminosity sensitive features are Si II &lt;span class=&quot;math inline&quot;&gt;\(\lambda6347,6371\)&lt;/span&gt;, &lt;span class=&quot;math inline&quot;&gt;\(H\alpha\)&lt;/span&gt;, O I triplet. In the supergiants the Paschen lines are narrower, and the highest line visible is P22 or P23, whereass in the dwarfs, only P16 or P17 can be readily discerned.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;b-type-stars&quot;&gt;B-type stars&lt;/h3&gt;
+&lt;p&gt;In NIR have He I lines.&lt;/p&gt;
+&lt;h2 id=&quot;paschen-jumps&quot;&gt;Paschen Jumps:&lt;/h2&gt;
+&lt;p&gt;From &lt;span class=&quot;citation&quot; data-cites=&quot;atlaslow93&quot;&gt;(Torres-Dodgen and Weaver 1993)&lt;/span&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is clear from the figures that the Paschen area itself gives a good first approximation of spectral type for early type stars (O—F), especially for A stars. This is completely analogous to the Balmer area in the blue part of the spectrum. For early types, the Paschen area can also distinguish supergiants from luminosity class V or III stars. The Paschen lines in the supergiants are much narrower than in giants or main-sequence stars, so more lines can be resolved in the series. In addition, the O I A8446 line is a good indicator of luminosity, as is the Paschen jump in A stars. For the late types (G—M), the Paschen area alone (i.e., the Ca II triplet) is a good indicator of luminosity&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;spectra-resources&quot;&gt;Spectra Resources&lt;/h2&gt;
+&lt;h3 id=&quot;full-width-at-half-maximum-fwhm&quot;&gt;Full Width at Half Maximum (FWHM)&lt;/h3&gt;
+&lt;p&gt;From &lt;a href=&quot;http://www.astrosurf.com/buil/us/spe2/hresol7.htm&quot;&gt;astrosurf&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Full Width at Half Maximum (FWHM) is the width measured at half level between the continuum and the peak of the line. The FWHM is expressed either in wavelength unit or in speed unit when the objective is to measure expansion or disk speeds (if FWHM is in unit of wavelength, the width in km/sec is given by &lt;span class=&quot;math inline&quot;&gt;\(c \cdot \frac{FWHM}{\lambda}\)&lt;/span&gt;, with c is the speed of the light = 3.105 km/s). Example, suppose that the FWHM is of 2 A at 6563A, the equivalent resolved velocity is about 90 km/s.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&quot;math inline&quot;&gt;\(FWHM_{instrument}\)&lt;/span&gt; is the width that one measured on a very fine line. It is also the theoretical spectral resolution of the spectrograph.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The relation between FWHM and the standard deviation is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[\text{FWHM} = 2 \sqrt{2 \ln 2 } \sigma \approx 2.355 \sigma \]&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;working-wiht-fits-table&quot;&gt;Working wiht fits table&lt;/h3&gt;
+&lt;p&gt;The templates from UVES POP &lt;span class=&quot;citation&quot; data-cites=&quot;uvespop&quot;&gt;(Jehin et al. 2005)&lt;/span&gt; to be able to work with them in IRAF one way to do it is:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span class=&quot;ex&quot;&gt;rspectext&lt;/span&gt; tryCastor.txt tryCastroiraf dtype=interp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After doing:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode python&quot;&gt;&lt;code class=&quot;sourceCode python&quot;&gt;&lt;span class=&quot;cf&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;open&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;#39;tryCastor.txt&amp;#39;&lt;/span&gt;,&lt;span class=&quot;st&quot;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span class=&quot;im&quot;&gt;as&lt;/span&gt; f:
+    &lt;span class=&quot;cf&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;kw&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;bu&quot;&gt;zip&lt;/span&gt;(waveall, fluxall):
+        f.write(&lt;span class=&quot;st&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;#39;&lt;/span&gt;.&lt;span class=&quot;bu&quot;&gt;format&lt;/span&gt;(i[&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;],i[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;you get &lt;code&gt;tryCastroiraf: ap = 1, w1 = 3040.281, w2 = 10400.95, dw = 0.017874, nw = 41181&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then can apply and dopcor and plot with splot&lt;/p&gt;
+&lt;h3 id=&quot;resampling&quot;&gt;Resampling&lt;/h3&gt;
+&lt;p&gt;From the fits filed created in the last step:&lt;/p&gt;
+&lt;p&gt;dispcor cx25sky.fits tryCastroiraf.fits&lt;/p&gt;
+&lt;h3 id=&quot;template-smoothing&quot;&gt;Template Smoothing&lt;/h3&gt;
+&lt;p&gt;The following papers will clue you in on the formal way to obtain spectral type determinations by subtracting template spectra to a target spectrum:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;Steeghs07&quot;&gt;(Steeghs and Jonker 2007)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;Torres02&quot;&gt;(Torres et al. 2002)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You have template spectra with different resolution to that of your target. In this case, a way to smooth the template is using a Gaussian with FWHM:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math inline&quot;&gt;\(FWHM_{gaussian}^2 = FWHM_{vimos}^2 - FWHM_{template}^2\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Other (more complex) way to do this is using a broadening profile as explained in &lt;span class=&quot;citation&quot; data-cites=&quot;Torres02&quot;&gt;(Torres et al. 2002)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To do this the Program called &lt;a href=&quot;http://deneb.astro.warwick.ac.uk/phsaap/software/molly/html/INDEX.html&quot;&gt;Molly&lt;/a&gt; written by Tom Marsh from Warwick can be used. Some IRAF tools available for this task are in the KPNOSLT package, &lt;a href=&quot;dispcor%20--%20Dispersion%20correct%20and%20resample%20spectra&quot;&gt;dispcor&lt;/a&gt; and &lt;a href=&quot;http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?dopcor&quot;&gt;dopcor&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dispcpr for dispersion correct and resample spectra&lt;/li&gt;
+&lt;li&gt;dopcor to apply doppler correction&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;fit-continuum&quot;&gt;Fit continuum&lt;/h3&gt;
+&lt;p&gt;First, try to cut the spectrum into two, a red and a blue part.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scopy cx0137cut.msc.fits 4750- 7565 cx0137bcut.msc.fits scopy cx0137cut.msc.fits 7723 - INDEF cx0137rcut.msc.fits&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scopy CX0044blue.ms.fits cx0044bluecut.msc.fits 4750 -indef scopy CX0044red.ms.fits cx0044redcut.msc.fits indef-indef&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In the blue then need to mask the emission lines and in the red one need to mask the telluric lines. For example for the red part for the sample do:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;continuum input=cx0137rcut.msc.fits output=cx0137rnv2.msc.fits sample=“6600:6800,7080:7140,7710:7870,8050:8090,8440:8910,8914:8916, 8922:8926,8970:8973,8981:8983,8985:8987,9056:9059,9201:9204,9219:9221,9226:9228,9910:10400”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;the others parameters are the function to be fit to the spectra and the order of the polynomials or the number of spline pieces. So for example s3o2 means spline3 and order 2. Also the rejection limits below and above the fit in units of the resicual sigma. This are low_reject and high_reject. The advice from Dr. Torres is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Si tu continuo no tuviera ninguna absorcion o muy debiles, usarias lo_rej=high_rej=3. Sin embargo vas a tener lineas de absorcion con lo cual tendras que disminuir uno de estos dos parametr para evitar que el ajuste se desplaze hacias las lineas de absorcion.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;continuum cxb.fits cxbn.fits function=spline3 order=3 low_reject=3 high_reject=3 scopy cx25sky.ms.fits cxr.fits w1=7723 w2=INDEF scopy cx25sky.ms.fits cxb.fits w1=4750 w2=7565 scombine cx*n.fits try1combine.fits&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;books&quot;&gt;Books:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;SpectralClassBook&quot;&gt;(Gray and Corbally 2009)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;1945table&quot;&gt;(Moore 1945)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;papers&quot;&gt;Papers:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In &lt;span class=&quot;citation&quot; data-cites=&quot;atlaslow93&quot;&gt;(Torres-Dodgen and Weaver 1993)&lt;/span&gt; they present “We present spectra of O to M stars, luminosity classes V, III, and lb in the wavelength range 5800-8900 A, at approximately 15 A resolution.” This is roughly the spectra resolution that I have.&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;carquillat97&quot;&gt;(Carquillat et al. 1997)&lt;/span&gt;: This Atlas illustrates the behavior of late type stars (F, G, K and M) in the near infrared 8400− 8800 A region with a resolution of about 2 A&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;andrillat1995&quot;&gt;(Andrillat, Jaschek, and Jaschek 1995)&lt;/span&gt;: The Atlas illustrates the behavior of early type stars (O, B, A and F type) in the near infrared 8375-8770A region at a resolution of about one A.&lt;/li&gt;
+&lt;li&gt;In &lt;span class=&quot;citation&quot; data-cites=&quot;danks1994&quot;&gt;(Danks and Dennefeld 1994)&lt;/span&gt;: An atlas of stellar spectra covering the wavelength range from 5800A to 10,200A is presented of 126 southern MK standard stars, covering the luminosity classes I, III, and V. Some peculiar stars are included for comparison purposes. The spectra were obtained at a resolution of 4.3A.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;webpages&quot;&gt;Webpages:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://www.star.ucl.ac.uk/~msw/lines.html&lt;/li&gt;
+&lt;li&gt;http://pendientedemigracion.ucm.es/info/Astrof/ellipt/MgIsTiO.html&lt;/li&gt;
+&lt;li&gt;http://tigers.phys.lsu.edu/gbs/vardb/sources.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;references&quot; class=&quot;unnumbered&quot;&gt;References&lt;/h1&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+&lt;div id=&quot;ref-andrillat1995&quot;&gt;
+&lt;p&gt;Andrillat, Y., C. Jaschek, and M. Jaschek. 1995. “An atlas of the infrared spectral region. I. The early type stars (O-G0).” &lt;em&gt;Astronomy and Astrophysics Supplement&lt;/em&gt; 112 (September): 475.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-starspot2005&quot;&gt;
+&lt;p&gt;Berdyugina, Svetlana V. 2005. “Starspots: A Key to the Stellar Dynamo.” &lt;em&gt;Living Reviews in Solar Physics&lt;/em&gt; 2 (1): 8. doi:&lt;a href=&quot;https://doi.org/10.12942/lrsp-2005-8&quot;&gt;10.12942/lrsp-2005-8&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-carquillat97&quot;&gt;
+&lt;p&gt;Carquillat, M. J., C. Jaschek, M. Jaschek, and N. Ginestet. 1997. “An Atlas of the infrared spectral region. II. The late-type stars (G - M).” &lt;em&gt;A &amp;amp; A Supplement Series&lt;/em&gt; 123 (May). doi:&lt;a href=&quot;https://doi.org/10.1051/aas:1997342&quot;&gt;10.1051/aas:1997342&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-carroll2007&quot;&gt;
+&lt;p&gt;Carroll, Bradley W., and Dale A. Ostlie. 2007. &lt;em&gt;An Introduction to Modern Astrophysics&lt;/em&gt;. Edited by San Francisco: Pearson Addison-Wesley. 2nd (International).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-danks1994&quot;&gt;
+&lt;p&gt;Danks, A. C., and M. Dennefeld. 1994. “An atlas of southern MK standards from 5800 to 10200 A.” &lt;em&gt;Publications of the Astronomical Society of the Pacific&lt;/em&gt; 106 (April): 382–96. doi:&lt;a href=&quot;https://doi.org/10.1086/133390&quot;&gt;10.1086/133390&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-SpectralClassBook&quot;&gt;
+&lt;p&gt;Gray, R. O., and C. Corbally J. 2009. &lt;em&gt;Stellar Spectral Classification&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-hall76&quot;&gt;
+&lt;p&gt;Hall, Douglas S. 1976. “The Rs Cvn Binaries and Binaries with Similar Properties.” &lt;em&gt;International Astronomical Union Colloquium&lt;/em&gt; 29. Cambridge University Press: 287–348. doi:&lt;a href=&quot;https://doi.org/10.1017/S0252921100062011&quot;&gt;10.1017/S0252921100062011&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-uvespop&quot;&gt;
+&lt;p&gt;Jehin, E., S. Bagnulo, C. Melo, C. Ledoux, and R. Cabanac. 2005. “The Uves Paranal Observatory Project: A Public Library of High Resolution Stellar Spectra.” &lt;em&gt;Proceedings of the International Astronomical Union&lt;/em&gt; 1 (S228). Cambridge University Press: 261–62. doi:&lt;a href=&quot;https://doi.org/10.1017/S1743921305005739&quot;&gt;10.1017/S1743921305005739&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-1945table&quot;&gt;
+&lt;p&gt;Moore, C. E. 1945. “A Multiplet Table of Astrophysical Interest. Revised Edition. Part I - Table of Multiplets.” &lt;em&gt;Contributions from the Princeton University Observatory&lt;/em&gt; 20: 1–110.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-morgankeenan43&quot;&gt;
+&lt;p&gt;Morgan, W. W., P. C. Keenan, and E. Kellman. 1943. &lt;em&gt;An atlas of stellar spectra, with an outline of spectral classification&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-Steeghs07&quot;&gt;
+&lt;p&gt;Steeghs, D., and P. G. Jonker. 2007. “On the Mass of the Neutron Star in V395 Carinae/2S 0921-630.” &lt;em&gt;The Astrophysical Journal&lt;/em&gt; 669 (November): L85–L88. doi:&lt;a href=&quot;https://doi.org/10.1086/523848&quot;&gt;10.1086/523848&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-Torres02&quot;&gt;
+&lt;p&gt;Torres, M. A. P., J. Casares, I. G. Martínez-Pais, and P. A. Charles. 2002. “Rotational broadening and Doppler tomography of the quiescent X-ray nova Centaurus X-4” 334 (July): 233–40. doi:&lt;a href=&quot;https://doi.org/10.1046/j.1365-8711.2002.05521.x&quot;&gt;10.1046/j.1365-8711.2002.05521.x&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;ref-atlaslow93&quot;&gt;
+&lt;p&gt;Torres-Dodgen, Ana V., and W. B. Weaver. 1993. “An Atlas of Low-Resolution Near-Infrared Spectra of Normal Stars.” &lt;em&gt;Publications of the Astronomical Society of the Pacific&lt;/em&gt; 105 (689): 693. &lt;a href=&quot;http://stacks.iop.org/1538-3873/105/i=689/a=693&quot; class=&quot;uri&quot;&gt;http://stacks.iop.org/1538-3873/105/i=689/a=693&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 26 May 2017 00:00:00 -0500</pubDate>
+        <link>/VIMOSlabbook/log/2017/05/26/glossary.html</link>
+        <guid isPermaLink="true">/VIMOSlabbook/log/2017/05/26/glossary.html</guid>
+        
+        <category>glossary</category>
+        
+        <category>definitions</category>
+        
+        
+        <category>log</category>
+        
+      </item>
+    
+  </channel>
+</rss>

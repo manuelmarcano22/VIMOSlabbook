@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CX371</title>
+  <meta name="description" content="It has two set of datafiles.">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2017/01/22/cx371.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">CX371</h1>
+    <p class="post-meta"><time datetime="2017-01-22T00:00:00-06:00" itemprop="datePublished">Jan 22, 2017</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <p>It has two set of datafiles.</p>
+<h1 id="set-1">Set 1</h1>
+<p>Set 1 has the spectra file SSEM dated <em>2011-06-06T06:05:30</em> and two preimages (SREI) four days appart. Also one called “”VI_SREI_453430_2010-04-02T09:16:19.501_R_Q3_lo.fits.list“. The first two lines of this file:</p>
+<blockquote>
+<p>66064 266.13601287 -26.672531859 0 S </br> 66167 266.13637644 -26.673025680 0 S</p>
+</blockquote>
+<p>I am not sure what is the meaning of this list.</p>
+<h2 id="js9-cx371">JS9 CX371</h2>
+<p>As seen below the slit seems to be center at a very bright star, and a smaller one to the right. This gives in the SSEM two “slits”. I think the first one from top to bottom is CX371. It is much brighter than the standard start below. The data included the SRFM. It only has two apertures with apertures 2 corresponding to the brighter top one in the SSEM that I think it is CX371. Is it saturated? Is it normal that IRAF only sees one aperture?</p>
+<!-- TO load at loading time -->
+<table cellspacing="15">
+<tr valign="bottom">
+<td>
+<table cellspacing="3">
+<tr valign="bottom">
+<td colspan="4">
+Choose a JS9 menu action to perform:
+</td>
+</tr>
+<tr valign="top">
+<td>
+zoom:
+</td>
+<td>
+<button id="in" class="zoom2">
+zoom in
+</button>
+</td>
+<td>
+<button id="out" class="zoom2">
+zoom out
+</button>
+</td>
+</tr>
+<tr valign="top">
+<td>
+zoom:
+</td>
+<td>
+<button id="z1" class="zoom">
+zoom1
+</button>
+</td>
+<td>
+<button id="z2" class="zoom">
+zoom2
+</button>
+</td>
+<td>
+<button id="z4" class="zoom">
+zoom4
+</button>
+</td>
+</tr>
+<tr valign="top">
+<td>
+scale:
+</td>
+<td>
+<button id="log" class="scale">
+log
+</button>
+</td>
+<td>
+<button id="linear" class="scale">
+linear
+</button>
+</td>
+<td>
+<button id="squared" class="scale">
+squared
+</button>
+</td>
+</tr>
+<tr valign="top">
+<td>
+cmap:
+</td>
+<td>
+<button id="grey" class="color">
+grey
+</button>
+</td>
+<td>
+<button id="heat" class="color">
+heat
+</button>
+</td>
+<td>
+<button id="cool" class="color">
+cool
+</button>
+</td>
+</tr>
+<tr valign="top">
+<td>
+regions:
+</td>
+<td>
+<button id="circle" class="region">
+circle
+</button>
+</td>
+<td>
+<button id="box" class="region">
+box
+</button>
+</td>
+<td>
+<button id="ellipse" class="region">
+ellipse
+</button>
+</td>
+</tr>
+<tr valign="top">
+<td>
+Files:
+</td>
+<td>
+<a href='javascript:JS9.Load("/VIMOSlabbook/images/fits/preimagecx371set1.fits", {scale:"log"});'>1</a>
+</td>
+<td>
+<a href='javascript:JS9.Load("/VIMOSlabbook/images/fits/SSEMcx371set1.fits", {scale:"log"});'>2</a>
+</td>
+<td>
+<a href='javascript:JS9.LoadRegions("/VIMOSlabbook/images/regions/cx371set1.reg");'>Region</a>
+</td>
+</tr>
+</table>
+<td>
+<div class="JS9Panner" data-width="200px" data-height="200px">
+
+</div>
+</td>
+</tr>
+</table>
+<div class="JS9">
+
+</div>
+</div>
+<script type="text/javascript">
+var click;
+if( "ontouchstart" in document.documentElement ){
+  click = "touchstart";
+} else {
+  click = "click";
+}
+$(".zoom").on(click, function(evt){
+  var s = $(evt.currentTarget).attr("id");
+  JS9.SetZoom(s.charAt(1));
+  return false;
+});
+
+$(".zoom2").on(click, function(evt){
+  var s = $(evt.currentTarget).attr("id");
+  var s2 = "|1"
+  JS9.SetZoom(s.concat(s2));
+  return false;
+});
+
+$(".scale").on(click, function(evt){
+  var s = $(evt.currentTarget).attr("id");
+  JS9.SetScale(s);
+  return false;
+});
+$(".color").on(click, function(evt){
+  var s = $(evt.currentTarget).attr("id");
+  JS9.SetColormap(s);
+  return false;
+});
+$(".region").on(click, function(evt){
+  var s = $(evt.currentTarget).attr("id");
+  JS9.AddRegions(s);
+  return false;
+});
+JS9.Panner.HTML = "";
+</script>
+<script type="text/javascript">
+   function downloadJSAtOnload() {
+   JS9.Preload('/VIMOSlabbook/images/fits/preimagecx371set1.fits',{scale:'squared',onload: func})
+ }
+  if (window.addEventListener)
+      window.addEventListener("load", downloadJSAtOnload, false);
+  else if (window.attachEvent)
+      window.attachEvent("onload", downloadJSAtOnload);
+  else window.onload = downloadJSAtOnload;
+  function func() {
+  JS9.SetPan(1450,1730);
+  JS9.LoadRegions("/VIMOSlabbook/images/regions/cx371set1.reg");
+  }
+</script>
+<div id="JS9Console" class="JS9Console">
+
+</div>
+<hr />
+<h2 id="information">Information</h2>
+<p>In the <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J/ApJS/194/18">GBS catalog</a> CX 371 is <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR-5?-ref=VIZ5885600a4387&amp;-out.add=.&amp;-source=J/ApJS/194/18/table3&amp;recno=371">CXOGBS J174540.9-263519</a> with 7 counts and in SIMBAD <strong>No astronomical object found :coord 17 45 40.92 -26 35 19.3 (ICRS, J2000, 2000.0), radius: 2 arcmin</strong>.</p>
+<h2 id="srfm-spectra">SRFM Spectra</h2>
+<p>This is the spectra that was automatically extracted recorded in the SRFM file. It is aperture 2. I also has the double peak like maybe CX65, but no CX25 around Na D lines at 589.592 and 588.995.</p>
+<p>H<span class="math inline">\(\beta\)</span> at 486.1 is not clear and in a weird part of spectrum.</p>
+<script
+    src="/VIMOSlabbook/images/bokehgraphs/spectraap2cx371smoothsky.js"
+    id="09385008-0b38-4e2f-9db6-8878b684c3ce"
+    data-bokeh-model-id="9e70b0fa-44a8-450a-825d-02c3a0a6d678"
+    data-bokeh-doc-id="dfd10c2a-68bd-47fa-80d2-33f3ae3e91c3"
+></script>
+<h2 id="apall-extracted-spectra">Apall extracted spectra</h2>
+<p>It has some similarities but changes shape. This might me due to the fact that response correction is needed. Also there is a difference in what appers to be an emission line at around 512.0 nm.</p>
+<script
+    src="/VIMOSlabbook/images/bokehgraphs/apallspectraap2cx371smoothsky.js"
+    id="bc424bb9-dddb-4980-85c4-89ff197d10c0"
+    data-bokeh-model-id="37e1570f-6183-4559-a87b-d018638d9a2e"
+    data-bokeh-doc-id="fa355f0a-5215-441b-a4cc-f88948d39345"
+></script>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/js9.html'>js9</a></li>
+
+<li><a href='/VIMOSlabbook/tag/cx371.html'>cx371</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

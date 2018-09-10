@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Apall</title>
+  <meta name="description" content="Conda">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2017/01/10/source-identification.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Apall</h1>
+    <p class="post-meta"><time datetime="2017-01-10T00:00:00-06:00" itemprop="datePublished">Jan 10, 2017</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="conda">Conda</h2>
+<p>To run pyraf you need to activate the conda enviroment called iraf27.</p>
+<p>To list enviroments do:</p>
+<p><code>conda env list</code></p>
+<p>The one with pyraf installed is iraf27. To use it then do: <code>source activate iraf27</code></p>
+<p>This is using <a href="https://astroconda.readthedocs.io/en/latest/">astroconda</a>. It has python 2.7 with pyraf installed.</p>
+<h3 id="pyraf">Pyraf</h3>
+<p>I was getting the error <code>IrafError: &quot;Undefined variable uparm' in string ...&quot;</code>. This is 2.10 in the <a href="http://www.stsci.edu/institute/software_hardware/pyraf/pyraf_faq">pyraff_faq</a>. This got solve by running mkiraf and selecting xterm. This will change from system to system. So at each folder of the differnet sources might need to do mkiraf.</p>
+<h2 id="creating-the-region-files">Creating the region files</h2>
+<p>To try to identify the souces I need to create a region file to use with the preimages. The script <strong>fits2slit.csh</strong> by Dr. Torres is written in csh shell. I will translate to Python 2.7. Python 2.7 since pyraf still doesnt have full suppor twith python 3.</p>
+<blockquote>
+<p>To make the region files we need both the pre-images and the spectra. The reason is that the fits headers for the spectra contain the the slit definitions in MASK coordinates while the the pre images contain the transformation coefficients to convert from mask to CCD coordinates. Details on these transformations can be found in <a href="http://www.eso.org/observing/dfo/quality/VIMOS/qc/mask2ccd_qc1.html" class="uri">http://www.eso.org/observing/dfo/quality/VIMOS/qc/mask2ccd_qc1.html</a></p>
+</blockquote>
+<h3 id="fits2slit.py">fits2slit.py</h3>
+<p>I finished translating the .csh scrip to Python 2.</p>
+<h2 id="apall">Apall</h2>
+<p>I will have to use the routine apall to extract the spectra. The SRFM given by the pipeline is just a tool to have an idea about the general shape or trend since this ones are response rectified. The flux calibration is not to trust since in this case the sources might not be in the right place of the slit like the standard star was. The best is to normalize the spectra. Also for the SRFM maybe the star is saturated. Saturated if the count is more than about 50 000. This is of course after I multiply the 2D spectra by the integration time. If they are saturated take the wings of the spectra. For example CX25 is saturated. So just center the aperture around the wings without including the peak, and don’t fit the trace or recenter the apertures.</p>
+<p>Like mentioned before since the 2D spectra are in count rates (counts/second). So you need to multiply (imarith) the data by the integration time before extracting the spectrum. This is very important as IRAF uses the SNR ratio to weight the extracted signal. This is crucial for not so bright sources. The sources I am working with should be bright enough and should be a problem but just in case I need to multiply it before running apall.</p>
+<p>Also it is important to remember that for this project I would use the images with the sky lines. This is because IRAF would make a better job, maybe, to identidfy skylines. So use the SEXM and the ones called <code>mos_science_sky_extracted</code>.</p>
+<p>To identify the sources in the preimage how the preimage and 2D data are related should be constant from year to year. So if the source in the preimage one year looks to be in the left border, this means it is in the bottom of the 2D data.</p>
+<p>In the epar of apall also might want to change the line and nsum parameter. The dispersion line (line or column perpendicular to the dispersion axis) and number of adjacent lines (half before and half after unless at the end of the image) used in finding, recentering, resizing, and editing operations. A line of INDEF selects the middle of the image along the dispersion axis. A positive nsum selects a sum of lines and a negative selects a median of lines. You might want to play with this since a star might be saturated in the red and not in the blue for example.</p>
+<p>To use apall in pyraf do:</p>
+<pre><code>noao
+twodspec
+apextract</code></pre>
+<p>I was having a problem before to extract the spectrum. I had to do <code>epar apextract</code> and change the <strong>dispersion axis</strong> to <strong>1</strong> or along the lines and not column. Then need to select the apertures and fit the trace function. Since the spectra is rectified I should net a ordr of the polynomial more than 3 and 2 should be enough. For example for the trace can do <code>:or</code> and then the order of the polynomial to fit.</p>
+<p>It then produces a file with extension <strong>.ms.fits</strong>. You can plot it with <em>splot</em> and it will plot with pixels in the x axis. You will have a file with various line, one for each aperture. For example to plot one spectrum do:</p>
+<p><code>splot file.ms.fits[*,1]</code></p>
+<p>where the number represent like in the SRFM file the file and represent each aperture.</p>
+<p>To normalize it maybe use the <a href="http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?continuum">continuum</a> function from the noao and onedspec package.</p>
+<p>All the apertures are safe in the log file under the folder called <em>database</em></p>
+<h3 id="apertures">Apertures</h3>
+<p>In this database files the apertures will be saved. For example:</p>
+<pre><code>begin   aperture copy_mos_science_sky_extracted_Q3 2 1250. 48.08994
+    image   copy_mos_science_sky_extracted_Q3
+    aperture    2
+    beam    2
+    center  1250. 48.08994
+    low -1249. -5.
+    high    1250. 5.</code></pre>
+<p>The last two lines tells you the width of the apertures. These are IRAF default values. These are the limits relative to the aperture center. This values will change if it is saturated (more than 50 000 counts). Then I will need to not center the aperture, or just include the left or right wings. If these limits are changed to exclude the peak and include only the wings then don’t do the trace fit.</p>
+<h4 id="useful-apall-refences">Useful Apall refences</h4>
+<ul>
+<li><a href="http://astro.dur.ac.uk/~cpnc25/pg_dr_spectroscopy.html">Durham Postgraduate Data Reduction Course</a></li>
+<li><a href="http://iraf.noao.edu/docs/spectra.html">IRAF spectroscopy Documentation</a></li>
+<li><a href="http://www.twilightlandscapes.com/IRAFtutorial/IRAFintro_06.html">VI. Basic Reductions for Spectroscopic Data</a></li>
+<li><a href="http://www.ucolick.org/~bolte/AY257/ay257_6.pdf">Spectral Reduction Procedures</a></li>
+</ul>
+<h1 id="vimos-quality-control">VIMOS Quality Control</h1>
+<p>The VIMOS Quality Control page has some good resouces including some important information about the instrument like the response curve and know issues. Relevant to this work is this found <a href="http://www.eso.org/observing/dfo/quality/VIMOS/qc/problems_qc1.html">here</a>:</p>
+<blockquote>
+<p><strong>Absorption feature in GG475 filter</strong> <br/> The GG475 filters in quadrants 3 and 1 introduce an absorption feature between about 5800 and 6000A. The filters have about 10 to 20% of their weight in sodium oxide. Impure manufacturing is likely the cause of this feature. Example observations showing the absorption in a featureless white dwarf for quadrants 3 (strong) and 1 (less strong) can be found <a href="http://www.eso.org/observing/dfo/quality/VIMOS/img/MR_GG475_Q13.png">here</a>.</p>
+</blockquote>
+<h2 id="response">Response</h2>
+<p>After I extract and identify the relevant source, I can response correct the spectra. I can do it following the directions in the page <a href="http://www.eso.org/observing/dfo/quality/VIMOS/qc/response.html">VIMOS response curves and flux calibration</a>.</p>
+<p>It comes in a table with 7 fields. Only the first (wave) and 7 (response) are relevant.</p>
+<p>For example for CX25 the relevant information to decide what response curve to use is:</p>
+<ul>
+<li>GRISM: <strong>MR</strong> from <em>GRIS4 NAME</em> in the SSEm header</li>
+<li>Filter name: <strong>GG475</strong> from <em>FILT4 NAME</em> in the SSEM header</li>
+<li>Quadrant: <strong>4</strong> from <em>OCS CON QUAD</em> in the SSEM header</li>
+</ul>
+<p>so in this case according to the observing date:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="n">resp</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;VI_GRSM_101001A_GG475_MR_Q4.fits&#39;</span><span class="p">)</span>
+<span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">resp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">])</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">resp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">])</span></code></pre>
+</figure>
+<p>It looks like this:</p>
+<figure>
+<img src="/VIMOSlabbook/images/MR_Q4_resp.png" alt="Response for MR and Quandrant 4" /><figcaption>Response for MR and Quandrant 4</figcaption>
+</figure>
+<p>Then as it is stated in the website apply to the spectrum:</p>
+<blockquote>
+<p>Usage: Master response curves R_mst can be applied by hand to extracted spectra with the following procedure: F_obs = R_mst * f_raw * 10**(0.4 * airmass * extinction)</p>
+</blockquote>
+<p>In the header there is a line called <code>HIERARCH ESO TEL AIRM START = 1.082 / Airmass at start</code> and here it mentions some extinction coefficients for different pediods for each filters and quadrants. <a href="http://www.eso.org/observing/dfo/quality/VIMOS/qc/zeropoints.html">Colour terms and extinction coefficients</a></p>
+<h2 id="dbus">Dbus</h2>
+<p>I was having problems with matplotlib. It was a problem with the dbus. I found the solution <a href="http://www.torkwrench.com/2012/12/16/d-bus-library-appears-to-be-incorrectly-set-up-failed-to-read-machine-uuid-failed-to-open-varlibdbusmachine-id/">here</a>. It was doing:</p>
+<p><code>root@container#dbus-uuidgen &gt;/etc/machine-id</code></p>
+<p>For some people it was</p>
+<p><code>dbus-uuidgen &gt; /var/lib/dbus/machine-id</code></p>
+<p>In some places it said to start the docker image with the <code>-net=host</code> option but I didn’t have to do this to make it work.</p>
+<h2 id="vim-and-vimx">vim and vimx</h2>
+<p>I installed <code>vim-x11</code> and <code>vim-enhanced</code> in the docker image to be able to support pasting from the terminal to and from vim. When I need it I need to do <code>vimx</code> instead of just <code>vim</code>. I might put an alias in the .bashrc.</p>
+<p><code>alias vim='vimx'</code></p>
+<!-- Not relevant
+#### Failed attempt
+
+I tried to used python to reduce the spectra by averaging the data. Something like the following. I will better learn to do it the "right way" with IRAF.
+
+
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">fits</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s">&#39;newcx25.fits&#39;</span><span class="p">,</span><span class="n">original</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">180</span><span class="p">,:]</span> <span class="p">,</span><span class="n">original</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+<span class="c">#!/usr/bin/python2</span>
+
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">ssem</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;VI_SSEM_575273_2011-05-26T05:19:50.824_G475_MR_202166_Q2_hi.fits&#39;</span><span class="p">)</span>
+<span class="n">header1</span> <span class="o">=</span> <span class="n">ssem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+<span class="n">header1</span><span class="p">[</span><span class="s">&#39;NAXIS2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">fits</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s">&#39;lastmedian.fits&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ssem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="p">,</span><span class="n">header1</span><span class="p">)</span>          
+<span class="n">mediannorm</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ssem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ssem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>  
+<span class="n">fits</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s">&#39;lastmediannorm.fits&#39;</span><span class="p">,</span> <span class="n">mediannorm</span>  <span class="p">,</span><span class="n">header1</span><span class="p">)</span></code></pre></figure>
+
+
+![SRFM vs SSEM](/VIMOSlabbook/images/cx59both.png)-->
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/data.html'>data</a></li>
+
+<li><a href='/VIMOSlabbook/tag/spectra.html'>spectra</a></li>
+
+<li><a href='/VIMOSlabbook/tag/apall.html'>apall</a></li>
+
+<li><a href='/VIMOSlabbook/tag/vimx.html'>vimx</a></li>
+
+<li><a href='/VIMOSlabbook/tag/dbus.html'>dbus</a></li>
+
+<li><a href='/VIMOSlabbook/tag/iraf.html'>iraf</a></li>
+
+<li><a href='/VIMOSlabbook/tag/pyraf.html'>pyraf</a></li>
+
+<li><a href='/VIMOSlabbook/tag/sexm.html'>SEXM</a></li>
+
+<li><a href='/VIMOSlabbook/tag/srfm.html'>SRFM</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

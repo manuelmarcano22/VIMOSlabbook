@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SDSS data</title>
+  <meta name="description" content="Dowload data">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2018/01/17/sdss-data.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">SDSS data</h1>
+    <p class="post-meta"><time datetime="2018-01-17T00:00:00-06:00" itemprop="datePublished">Jan 17, 2018</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="dowload-data">Dowload data</h1>
+<p>Download from <a href="https://www.sdss.org/dr14/data_access/bulk/#OpticalSpectraPer-ObjectFiles">Optical Spectra Catalog Data</a></p>
+<p>It says that:</p>
+<blockquote>
+<p>Catalogs of parameters derived from the SDSS/BOSS/SEQUELS/eBOSS optical spectra and matched to photometric data are documented on the optical spectra data page. These can be directly downloaded from the links on that page, or via wget commands. For example, to download the redshifts and classifications of all SDSS spectra (4.5 GB)</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span> --spider https://data.sdss.org/sas/dr14/sdss/spectro/redux/specObj-dr14.fits</code></pre></div>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;specObj-dr14.fits&#39;</span><span class="p">)</span>
+<span class="c"># The second extension is the table</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">sd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">table</span><span class="o">.</span><span class="n">header</span></code></pre>
+</figure>
+<p>This displays the header and we get for each column (133 total colums) of the table. The zeroth is the survey and the 68th and 69th are CLASS and SUBCLASS.</p>
+<blockquote>
+<p>CLASS Best spectroscopic classification (“STAR”, “GALAXY” or “QSO”)</p>
+</blockquote>
+<blockquote>
+<p>SUBCLASS Best spectroscopic subclassification</p>
+</blockquote>
+<p>To access it do:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="n">datatable</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">data</span>
+<span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">68</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">69</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span> <span class="p">])</span>
+<span class="p">{(</span><span class="s">&#39;GALAXY&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;GALAXY&#39;</span><span class="p">,</span> <span class="s">&#39;BROADLINE&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;GALAXY&#39;</span><span class="p">,</span> <span class="s">&#39;STARBURST&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;GALAXY&#39;</span><span class="p">,</span> <span class="s">&#39;STARFORMING&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;QSO&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;QSO&#39;</span><span class="p">,</span> <span class="s">&#39;BROADLINE&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;A0&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;A0p&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;CV&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;F2&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;F5&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;F9&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;G2&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;L5.5&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;M6&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;OB&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s">&#39;STAR&#39;</span><span class="p">,</span> <span class="s">&#39;WD&#39;</span><span class="p">)}</span>
+ <span class="c"># To find an specific CLASS or SUBCLASS can do</span>
+ <span class="n">a0</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">68</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">69</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;A0&#39;</span> <span class="p">]</span>
+ <span class="c">#or</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;A0&#39;</span><span class="p">:</span>
+<span class="c">#file to download</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="s">&#39;A0&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">69</span><span class="p">]:</span>
+<span class="c">#Create a file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;listA0.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s">&#39;A0&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="mi">69</span><span class="p">]:</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="c">#Need this for boss and eboss url</span>
+            <span class="k">if</span> <span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;boss&#39;</span><span class="p">:</span>
+                <span class="n">survey</span> <span class="o">=</span> <span class="s">&#39;eboss&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">survey</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">api</span><span class="o">=</span><span class="s">&#39;https://dr14.sdss.org/sas/dr14/{survey}/spectro/redux/{run2d}/spectra/{plate:04d}/spec-{plate:04d}-{mjd}-{fiber:04d}.fits&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">survey</span><span class="o">=</span><span class="n">survey</span><span class="p">,</span><span class="n">run2d</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span><span class="n">plate</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span><span class="n">mjd</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">63</span><span class="p">],</span><span class="n">fiber</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">64</span><span class="p">])</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">69</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;,&#39;</span> <span class="o">+</span> <span class="n">api</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span></code></pre>
+</figure>
+<p>Plate is 61, MJD is 63, Fiber ID is 64, survey is 0 and RUN2D is 28.</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="n">obj</span> <span class="o">=</span> <span class="n">datatable</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">api</span><span class="o">=</span><span class="s">&#39;https://dr14.sdss.org/sas/dr14/{survey}/spectro/redux/{run2d}/spectra/{plate:04d}/spec-{plate:04d}-{mjd}-{fiber:04d}.fits&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">survey</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">run2d</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span><span class="n">plate</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span><span class="n">mjd</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">63</span><span class="p">],</span><span class="n">fiber</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">64</span><span class="p">])</span></code></pre>
+</figure>
+<p>Still doesn’t work. Need to fill the numbers with zeros. PLATE and FIBERID need to be zero-padded.</p>
+<h2 id="optical-api-arguments"><a href="https://dr14.sdss.org/optical/spectrum/view/data/access">Optical API Arguments</a>:</h2>
+<p>You may download lite or full version of the spectrum directly by using the URL of the flat file on the SAS:</p>
+<p><code>https://dr14.sdss.org/sas/dr14/SURVEY/spectro/redux/RUN2D/spectra/SPEC/PLATE4/spec-PLATE4-MJD-FIBERID4.fit</code></p>
+<p><strong>SURVEY</strong> Should be replaced by the appropriate survey (currently either ‘sdss’ for DR8, ‘boss’ for DR9 through DR12, or ‘eboss’ for DR13 and later)</p>
+<p><strong>RUN2D</strong> Should be replaced by the reduction number.</p>
+<p><strong>PLATE4</strong> Should be replaced by the zero-padded, 4-digit plate number.</p>
+<p><strong>MJD</strong> Should be replaced by the MJD number.</p>
+<p><strong>FIBERID4</strong> Should be replaced by the zero-padded, 4-digit fiber number.</p>
+<h2 id="the-fits-file">The FITS file</h2>
+<p>After download the fits file. It has at least 4 HDUs: <a href="https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/spectra/PLATE4/spec.html">datamodel</a></p>
+<p>One way to download is:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s">&#39;spec-{plate:04d}-{mjd}-{fiber:04d}.fits&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">survey</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">run2d</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span><span class="n">plate</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span><span class="n">mjd</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">63</span><span class="p">],</span><span class="n">fiber</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="mi">64</span><span class="p">])</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">api</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+<span class="c"># Or</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s">&#39;wget&#39;</span><span class="p">,</span> <span class="s">&#39;-N&#39;</span><span class="p">,</span> <span class="n">api</span><span class="p">])</span></code></pre>
+</figure>
+<p>After downloading them to plot in python do:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">ob</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;spec-0266-51630-0600.fits&#39;</span><span class="p">)</span> 
+<span class="n">dataob</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">dataob</span><span class="p">[</span><span class="s">&#39;loglam&#39;</span><span class="p">]),</span><span class="n">dataob</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c">## To plot the model</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">dataob</span><span class="p">[</span><span class="s">&#39;loglam&#39;</span><span class="p">]),</span><span class="n">dataob</span><span class="p">[</span><span class="s">&#39;model&#39;</span><span class="p">])</span>                                    </code></pre>
+</figure>
+<p>The information about the CLASS and SUBCLASS is in the second HDU: <code>ob[2].data['CLASS']</code></p>
+<h2 id="sdss-data-in-iraf">SDSS data in IRAF</h2>
+<p>SDSS recommends in this <a href="http://www.sdss.org/dr12/tutorials/iraf-tutorial/">IRAF Tutorial</a> to use the <a href="http://www.stsci.edu/institute/software_hardware/tables">STSDAS Tables</a> package. Other way is to use python to write a text file of the SDSS table and them use <a href="http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?rspectext">rspectext</a> to convert the 1D ascii text file to IRAF image spectra. After this can use splot to visualize the spectra. I had to use dtype=interp for rspectext since the tables don’t seem to have a single step value for the wavelenfths. Can try dtype=‘nonlinear’ but it takes a long time for splot to plot it. An example python/pyraf to convert the table to IRAF image spectra is below. Have to do in the folder mkiraf and have your uparm folder for the code to run. And have pyraf installed. Best way to do it is with Astroconda, but it only supports python2.7 at the moment.</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span> <span class="nn">pyraf</span> <span class="kn">import</span> <span class="n">iraf</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c">#filename = &#39;spec-0266-51602-0051.fits&#39;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="c">#import fits</span>
+<span class="n">ob</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c">#Get data and save wavelenft in x, and flux on y</span>
+<span class="n">dataob</span> <span class="o">=</span> <span class="n">ob</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">dataob</span><span class="p">[</span><span class="s">&#39;loglam&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataob</span><span class="p">[</span><span class="s">&#39;model&#39;</span><span class="p">]</span>
+
+<span class="c">#save to a .txt file</span>
+<span class="n">namenewfits</span> <span class="o">=</span> <span class="s">&#39;{name}.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">namenewfits</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;{}</span><span class="se">\t</span><span class="s">{}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c">#Create fits file from text file interpolation. </span>
+<span class="n">iraffitsname</span> <span class="o">=</span> <span class="s">&#39;iraf&#39;</span><span class="o">+</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">iraffitsname</span><span class="o">+</span><span class="s">&#39;.fits&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iraffitsname</span><span class="o">+</span><span class="s">&#39;.fits&#39;</span><span class="p">)</span>
+    
+<span class="n">iraf</span><span class="o">.</span><span class="n">noao</span><span class="o">.</span><span class="n">onedspec</span><span class="p">()</span>
+<span class="n">iraf</span><span class="o">.</span><span class="n">dataio</span><span class="p">()</span>
+<span class="n">iraf</span><span class="o">.</span><span class="n">rspectext</span><span class="p">(</span><span class="n">namenewfits</span><span class="p">,</span><span class="n">iraffitsname</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s">&#39;interp&#39;</span><span class="p">)</span></code></pre>
+</figure>
+<h1 id="line-index-measurement-in-sspp-sspp"><a href="http://www.sdss.org/dr14/spectro/sspp_lineindexmeas/">Line Index Measurement in SSPP – SSPP</a></h1>
+<h2 id="to-do">TO Do</h2>
+<ul>
+<li>Principal Component Analysis in SDSS data. <a href="http://www.astroml.org/book_figures/chapter7/index.html">Chatper 7</a> of <a href="http://www.astroml.org/index.html">Machine Learning and Data Mining for Astronomy</a>.</li>
+</ul>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/spectra.html'>spectra</a></li>
+
+<li><a href='/VIMOSlabbook/tag/sdss.html'>sdss</a></li>
+
+<li><a href='/VIMOSlabbook/tag/template.html'>template</a></li>
+
+<li><a href='/VIMOSlabbook/tag/python.html'>python</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

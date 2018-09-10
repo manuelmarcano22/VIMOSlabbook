@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>First Steps</title>
+  <meta name="description" content="The Context:">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2016/12/21/first-steps.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">First Steps</h1>
+    <p class="post-meta"><time datetime="2016-12-21T00:00:00-06:00" itemprop="datePublished">Dec 21, 2016</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="the-context">The Context:</h1>
+<h2 id="the-galatic-bulge-survey">The Galatic Bulge Survey</h2>
+<p>As described in detail <a href="https://personal.sron.nl/~peterj/gbs/index.html">here</a>:</p>
+<blockquote>
+<p>The Galactic Bulge Survey is a multiwavelength survey of 12 square degrees of the Galactic bulge in the vicinity of the Galactic center.</p>
+</blockquote>
+<p>The first paper introducing the Galactic Bulge Survey (GBS) is <span class="citation" data-cites="jonker11">P. G. Jonker et al. (2011)</span></p>
+<p>It included near infrared, X-ray and optical wavelengths. In the X-ray it was done with the Chandra X-ray observatory. The optical photometry observations in r’, i’and H<span class="math inline">()</span> filters were taken with the MOSAIC-II imager and the Dark Energy Camera (DECam) mounted in the 4-m Victor M. Blanco telescope at Cerro Tololo Inter-American Observatory in Chile. And the near infrared photometry with ESOs VISTA telescope as part of the VISTA Variables in The Via Lactea (VVV) public survey survey.</p>
+<p>Several multiwavelength follow-up have been done. For example in the radio matching the GBS sources with the National Radio Astronomy Observatory (NRAO) Very Large Array (VLA) Sky Survey have been published by <span class="citation" data-cites="Maccarone11112012">T. J. Maccarone et al. (2012)</span> .</p>
+<p>Also an optical spectroscopic survey have been on going with instruments like the <strong>Visible Multi-Object Spectrograph (VIMOS)</strong>. This is the data I will be working with.</p>
+<h2 id="the-catalog">The catalog</h2>
+<p><a href="http://iopscience.iop.org/0067-0049/194/2/18/suppdata/apjs386787t3_mrt.txt">Here</a>.</p>
+<h2 id="visible-multi-object-spectrograph-vimos">Visible Multi-Object Spectrograph (VIMOS)</h2>
+<p>From the ESO <a href="http://www.eso.org/sci/facilities/paranal/instruments/vimos.html">instrument description</a>:</p>
+<blockquote>
+<p>VIMOS <span class="citation" data-cites="vimospaper2003">(Le Fèvre et al. 2003)</span> is a visible (360 to 1000 nm) wide field imager and multi-object spectrograph mounted on the Nasmyth focus B of UT3 Melipal.</p>
+</blockquote>
+<p>VIMOS has three different modes: Imaging (IMG), Integral Field Unit (IFU), and Multi-Object-Spectroscopy (MOS) mode. The observation for the data I am going to use was in the MOS mode.</p>
+<h3 id="multi-object-spectroscopy-mos-and-imaging-mode">Multi-Object-Spectroscopy (MOS) and Imaging mode</h3>
+<p>The multi-object mode of VIMOS uses grisms (6 grating prism) and masks, that depending on location, the spectral range can be up to ~370-620 nm. Depending on the grism used, the spectral resolution varies from 200 to 2500, and the observable range is from 360 to 1000 nm. The maximum number of slits per mask (quadrant) varies from ~40 at R=2500 to ~150-200 at R=200, for a field of view of 4 x 7’ x 8’.</p>
+<p>For imaging the field of view in imaging mode consists in <strong>4 quadrants</strong> of 7’ x 8’ each, separated by a cross 2’ wide. Imaging with VIMOS is offered with a set of 6 broad band filters. Each arm of VIMOS is equipped with its own set of filters and some minor difference may exist in the transmission curve of the 4 quadrants. Imaging is possible in UBVRIz filters in a 4 x 7’ x 8’ field of view.</p>
+<p>Information for the filters can be found <a href="http://svo2.cab.inta-csic.es/svo/theory/fps3/index.php?id=Paranal/VIMOS.R&amp;&amp;mode=browse&amp;gname=Paranal&amp;gname2=VIMOS#filter">here</a>.</p>
+<p>A summary can be found in <a href="http://www.eso.org/sci/facilities/paranal/instruments/vimos/inst/mos.html">here</a>.</p>
+<h3 id="some-resources-and-papers">Some resources and papers:</h3>
+<ul>
+<li><p>Website: <a href="https://personal.sron.nl/~peterj/gbs/index.html">The Galactic Bulge Survey</a></p></li>
+<li><p>Presentation: <a href="http://cxc.harvard.edu/symposium_2014/presentations/macTalks/Nov21/Torres_Manuel.pdf">The Chandra Galactic Bulge Survey by Dr. Torres</a></p></li>
+<li><p>Presentation: <a href="http://cxc.cfa.harvard.edu/ChandraDecade/PDFs/Jonker_11.pdf">Galactic Bulge Survey by Jonker</a></p></li>
+</ul>
+<h2 id="the-goal">The goal:</h2>
+<p>My goal will be to:</p>
+<blockquote>
+<p>Identify if the target was centered (or partially located) on the slit by looking to the slit region files projected on the pre-images. If so, identify the corresponding slit and target spectrum in the 2D spectra and do the extraction.</p>
+</blockquote>
+<h3 id="example-for-cx25">Example for CX25</h3>
+<h4 id="theory">Theory</h4>
+<p>From Simbad is an LMXB at <em>FK5 coord. (ep=J2000 eq=2000) : 17 48 04.831 -24 46 48.87</em>. In the preimage it is <em>17 45 03 -31 59 34</em>. But Dr. Torres says that the astrometry is not the best in the pre-images.</p>
+<p>In <span class="citation" data-cites="patruno12cx25">(Patruno et al. 2012)</span> it says:</p>
+<blockquote>
+<p>The low mass X-ray binary (LMXB) IGR J17480–2446 in the globular cluster Terzan 5 harbors an 11 Hz accreting pulsar. […] The source is in core of Terzan 5, one of the densest among globular clusters.[…] The accreting pulsar spins with a frequency of 11 Hz and the LMXB has a period of 21.3 hr around a companion with mass M &gt; 0.4 <span class="math inline">(M_{})</span>AAlthough this pulsar is not a millisecond one, its location in a globular cluster makes it a unique system whose properties are of particular importance for studying the recycling mechanism.</p>
+</blockquote>
+<h4 id="vimos-data">VIMOS Data</h4>
+<h4 id="pre-image"><strong>Pre-image</strong></h4>
+<p>From pre-images with the region file generated by Dr. Torres script and displayed in ds9 using:</p>
+<p><code>ds9 VI_SREI_544351_2011-04-01T09:22:43.312_R_Q4_lo.fits -scale zscale -regions 544351_577734_Q4.reg &amp;</code></p>
+<figure>
+<figure>
+<img src="/VIMOSlabbook16/images/preimagecx25.png" />
+</figure>
+<figcaption>
+CX25 Preimage
+</figcaption>
+</figure>
+<p><strong>Why he says source is off center?</strong> Imaging is possible in UBVRIz filters in a 4 x 7’ x 8’ field of view. It is in the R filter according to the header entry:</p>
+<p><code>[...] FILT4 NAME = 'R ' / Filter name</code></p>
+<p>For this filter the range is 560-723 nm. <strong>Does that have to do that it is quadrant 4?</strong></p>
+<p>It is category <strong>IMG_SCIENCE_REDUCED</strong> so created by: vmimpreimaging, vmimobsstare, vmimobsjitter. Since it used the</p>
+<p><code>HIERARCH ESO PRO REC1 RAW1 CATG = 'IMG_SCIENCE' / Category of raw frame</code></p>
+<p>I think it was produced by the recipe <strong>vmimobsstare</strong>.</p>
+<h4 id="the-spectrum"><strong>The spectrum</strong></h4>
+<figure>
+<figure>
+<img src="/VIMOSlabbook16/images/spectracx25.png" />
+</figure>
+<figcaption>
+broad slit
+</figcaption>
+</figure>
+<p>Dr. Torres says that there it is a broad slit with 2 objects associated to the slit containing CX25 and there are <strong>other 3 slits</strong>.</p>
+<p>It says:</p>
+<blockquote>
+<p>When only one slit is found in the VIMOS quadrant, the pipeline likes to add the spectra of stars on the reference boxes. The reference boxes are used to align the slit-maks during the observations. These boxes are 5 x 5 arcsec wide compare to the 1&quot; -width slits</p>
+</blockquote>
+<p>This won’t be always the same and might have SLIT1 through 4 in the pre-images and in the same order or inverse in the spectra fits. Things to remeber about the 2D spectra:</p>
+<ul>
+<li>2D have been <strong>rectified</strong></li>
+<li>2D are <strong>wavelenght calibrated</strong>. But do <strong>not* trust</strong> radial velocities**.</li>
+<li>The 2D spectra are in count rates (counts/second). So you need to multiply (<a href="http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?imarith">imarith</a>) the data by the integration time before extracting the spectrum. <strong>Is it the header file EXPTIME</strong>?. For CX25 looking at the spectra: <code>EXPTIME = 874.99 / Total integration time. 00:14:34.990</code></li>
+</ul>
+<h1 id="references">References</h1>
+<div id="refs" class="references">
+<div id="ref-jonker11">
+<p>Jonker, P. G., C. G. Bassa, G. Nelemans, D. Steeghs, M. A. P. Torres, T. J. Maccarone, R. I. Hynes, et al. 2011. “The Galactic Bulge Survey: Outline and X-Ray Observations.” <em>The Astrophysical Journal Supplement Series</em> 194 (2): 18. <a href="http://stacks.iop.org/0067-0049/194/i=2/a=18" class="uri">http://stacks.iop.org/0067-0049/194/i=2/a=18</a>.</p>
+</div>
+<div id="ref-vimospaper2003">
+<p>Le Fèvre, O., M. Saisse, D. Mancini, S. Brau-Nogue, O. Caputi, L. Castinel, S. D’Odorico, et al. 2003. “Commissioning and performances of the VLT-VIMOS instrument.” In <em>Instrument Design and Performance for Optical/Infrared Ground-Based Telescopes</em>, edited by M. Iye and A. F. M. Moorwood, 4841:1670–81. SPIE. doi:<a href="https://doi.org/10.1117/12.460959">10.1117/12.460959</a>.</p>
+</div>
+<div id="ref-Maccarone11112012">
+<p>Maccarone, Thomas J., Manuel A. P. Torres, Christopher T. Britt, Sandra Greiss, Robert I. Hynes, Peter G. Jonker, Danny Steeghs, Rudy Wijnands, and Gijs Nelemans. 2012. “Radio Sources in the Chandra Galactic Bulge Survey.” <em>Monthly Notices of the Royal Astronomical Society</em> 426 (4): 3057–69. doi:<a href="https://doi.org/10.1111/j.1365-2966.2012.21782.x">10.1111/j.1365-2966.2012.21782.x</a>.</p>
+</div>
+<div id="ref-patruno12cx25">
+<p>Patruno, Alessandro, M. Ali Alpar, Michiel van der Klis, and Ed P. J. van den Heuvel. 2012. “The Peculiar Evolutionary History of Igr J17480-2446 in Terzan 5.” <em>The Astrophysical Journal</em> 752 (1): 33. <a href="http://stacks.iop.org/0004-637X/752/i=1/a=33" class="uri">http://stacks.iop.org/0004-637X/752/i=1/a=33</a>.</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/vimos.html'>VIMOS</a></li>
+
+<li><a href='/VIMOSlabbook/tag/data.html'>data</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

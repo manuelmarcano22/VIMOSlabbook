@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Prelude</title>
+  <meta name="description" content="My Setup">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2016/12/20/prelude.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Prelude</h1>
+    <p class="post-meta"><time datetime="2016-12-20T00:00:00-06:00" itemprop="datePublished">Dec 20, 2016</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="my-setup">My Setup</h2>
+<h3 id="the-university-server">The university Server</h3>
+<p>The server at the physics department I have access to is <em>krieger.ttu.edu</em> and my username <em>mmarcano</em>. When connected to the university network can use ssh as:</p>
+<p><code>ssh mmarcano@krieger.ttu.edu</code></p>
+<p>For <strong>remote access</strong></p>
+<p><code>ssh -L 2222:krieger.ttu.edu:22 mapichar@ssh.ttu.edu</code></p>
+<p>The instruction on how to do that can be found <a href="https://askit.ttu.edu/portal/app/portlets/results/viewsolution.jsp?SToken=BE61C2DC4FE5B4CC9919A11B48D6056B&amp;solutionid=160504120603124&amp;hypermediatext=null">here</a>.</p>
+<p>After establishing the connection thought <em>ssh.ttu.edu</em> in my localhost I can scp and ssh as:</p>
+<p><code>scp -P 2222 mmarcano@localhost:~/krieger.* .</code></p>
+<p>and</p>
+<p><code>ssh -p 2222 mmarcano@localhost</code></p>
+<h3 id="jupyter-notebooks">Jupyter notebooks</h3>
+<p><a href="https://anaconda.org/">Anaconda</a> is installed and I can run <a href="http://jupyter.org/">Jupyter</a> notebooks. In the server I first do:</p>
+<p><code>jupyter notebook --no-browser --port=8890</code></p>
+<p>And then in my computer</p>
+<p><code>ssh -N -L localhost:8888:localhost:8888 mmarcano@krieger.ttu.edu</code></p>
+<p>The idea was taken from this <a href="https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh">website</a>.</p>
+<p>To connect from out of campus can do like above:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ssh</span> -L 2222:archer.ttu.edu:22 mapichar@ssh.ttu.edu</code></pre></div>
+<p>In archer/krieger then do:</p>
+<p><code>jupyter notebook --no-browser --port=8890</code></p>
+<p>and in my local machine:</p>
+<p><code>ssh -N -L localhost:8890:localhost:8890 -p 2222 mmarcano@localhost</code></p>
+<p>Then I can just open in a browser localhost:8890</p>
+<p>Regarding Jupyter notebooks it is recommended to started with a password since it is a share server and anybody that has access to the server will have access to your Jupyter notebooks.</p>
+<p>Can put a password easily doing:</p>
+<p><code>jupyter notebook password</code></p>
+<p>For version control of jupyter notebooks:</p>
+<p><a href="https://github.com/jupyter/nbdime">nbdime</a></p>
+<h3 id="jupyter-hub-and-kernels">Jupyter Hub and Kernels</h3>
+<p>Since version 4.1.0, anaconda includes a special package nb_conda_kernels that detects conda environments with notebook kernels and automatically registers them. This makes using a new python version as easy as creating new conda environments.</p>
+<h3 id="wget-with-jupyter">wget with Jupyter</h3>
+<p>From this answer in stack overflow <a href="https://stackoverflow.com/questions/24437661/retrieving-files-from-remote-ipython-notebook-server">Retrieving files from remote IPython notebook server?</a>:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> IPython.display <span class="im">import</span> FileLink, FileLinks
+FileLinks(<span class="st">&#39;.&#39;</span>) <span class="co">#lists all downloadable files on server</span></code></pre></div>
+<p>The code generates links to download files</p>
+<p>For version control</p>
+<h3 id="github-repos">Github repos</h3>
+<h4 id="data-reduction-scripts">Data Reduction Scripts</h4>
+<p>This repository includes all the custom scripts used. The idea is to avoid manual data-manipulation whenever possible and have everything under version control. The repo is at <a href="https://github.com/manuelmarcano22/VIMOSReduced%5D">https://github.com/manuelmarcano22/VIMOSReduced</a></p>
+<p>Github has a limit on the files uploaded to for the larger files like the .fits file created I have a temporary HTTP server to share any relevant files. It is explain in the <a href="#http">HTTP server</a> section below.</p>
+<h4 id="docker-file">Docker file</h4>
+<p>The <a href="https://github.com/manuelmarcano22/VIMOSDocker">vimos docker repo</a> includes the Dockerfile for a image with Anaconda (or miniconda)(based on Python 3.5) of Scientific Linux 7.2. It can be manually build or the build image can be found on <a href="https://hub.docker.com/r/manuelmarcano22/vimosdocker/">DockerHub</a>.</p>
+<p>Explantation about Docker and containers, as well as some reasons why I will try to use docker containers are explain in my next entry <a href="/VIMOSlabbook16/log/2016/11/26/docker-containers.html">here</a>.</p>
+<h4 id="this-notebook">This notebook</h4>
+<p>This “lab notebook” is also it’s own git repository on github. The source can be found at <a href="https://github.com/manuelmarcano22/VIMOSlabbook16" class="uri">https://github.com/manuelmarcano22/VIMOSlabbook16</a></p>
+<p>Next step is to have the notebook as a docker container.</p>
+<h3 id="http-server">HTTP server</h3>
+<p>A temporary HTTP server can be found at <a href="http://transfer.manuelpm.me/">transfer.manuelpm.me</a>. So far it includes the provided .tar.gz file with the relevant fits and scripts. To download the tar files provided by Dr. Torres one can use wget:</p>
+<p><code>wget http://transfer.manuelpm.me/to-manuel.tar.gz</code></p>
+<p>To get the file with only the fits do</p>
+<p><code>wget http://transfer.manuelpm.me/to-manuel-fits.tar.gz</code></p>
+<p>For the current fits:</p>
+<p><code>wget http://transfer.manuelpm.me/current-fits.tar.gz</code></p>
+<p>I was playing with the idea to have instead a ftp server, but since I have already Apache running on my <a href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a> I didn’t see any big advantages of having it only the ftp server. I should ask around.</p>
+<h3 id="docker-container">Docker Container</h3>
+<p>See <a href="/VIMOSlabbook16/log/2016/11/26/docker-containers.html">here</a></p>
+<h1 id="vim">VIM</h1>
+<p>Had to install VIM from souce in krieger. Dowload it from Github. Just had the trouble that in the directory had to include the file /usr/share/X11/rgb.txt in ./local/share/vim</p>
+<p>And from the /usr/share/vim/vim/vim74 had to copy all the colors and syntax to ./local/share/vim</p>
+<h1 id="vnc">VNC</h1>
+<p>I can use a VNC server in krieger just do:</p>
+<p><code>vncserver</code></p>
+<p>and then in my computer I installed <a href="http://tigervnc.org/" class="uri">http://tigervnc.org/</a> and can simple do <code>vncviewer</code>. This will pop-up a GUI and I I put:</p>
+<p><code>krieger.ttu.edu:6</code></p>
+<p>or the number I got when I put the vnc in Krieger and the password I selected.</p>
+<p>To kill it do:</p>
+<p><code>vncserver -kill :6</code></p>
+<p>or number</p>
+<p>T see memory used by process can do:</p>
+<h1 id="memory">Memory</h1>
+<p><code>ps aux | awk '{print $6/1024 &quot; MB\t\t&quot; $11     &quot; &quot; $1  }'  | sort -n</code></p>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/server.html'>server</a></li>
+
+<li><a href='/VIMOSlabbook/tag/docker.html'>docker</a></li>
+
+<li><a href='/VIMOSlabbook/tag/jupyter.html'>jupyter</a></li>
+
+<li><a href='/VIMOSlabbook/tag/python.html'>python</a></li>
+
+<li><a href='/VIMOSlabbook/tag/first.html'>first</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

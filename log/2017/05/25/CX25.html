@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CX25</title>
+  <meta name="description" content="SREI">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2017/05/25/CX25.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">CX25</h1>
+    <p class="post-meta"><time datetime="2017-05-25T00:00:00-05:00" itemprop="datePublished">May 25, 2017</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="srei">SREI</h2>
+<p>It is in the folder <a href="https://vimos.manuelpm.me/cx25">CX25</a>.</p>
+<p>In the preimage below you can see two sources. I talked to Dr. Torres and the actual X-ray source is the one in the far left, and no the one centered. It was done on purpose to avoid saturation. I multiplied the SEXM by 874.99. This was the integration time in the SEXM header under EXPTIME. To have a new SEXM you do:</p>
+<p><code>imarith VI_SEXM_577734_2011-06-24T05:56:42.518_G475_MR_402230_Q4_hi.fits * 874.99 CX25SEXM.fits</code></p>
+<figure>
+<img src="/VIMOSlabbook/images/slit25.png" />
+</figure>
+<hr />
+<p>In the 2D spectra the slit of CX25 corresponds to the second slit from the bottom up. So aperture 3 is the object of interest.</p>
+<hr />
+<p><img src="/VIMOSlabbook/images/slit25v2.png" />.</p>
+<!--
+When I tried using apall with a copy of the SEXM file the apertures begin from bottom to top (I think, by looking at the dynamically finding the apertures). So for Ap 2 and 3 I get:
+
+![](/VIMOSlabbook/images/compareaps25aps2and3.png)
+
+Where the top ones are from the SRFM and the bottom ones are not corrected running apall on the SEXM.-->
+<hr />
+<h2 id="cx-25-information">CX 25 Information</h2>
+<h2 id="simbad">Simbad</h2>
+<p>Searching in Simbad using the location of CX0025 (as given in the survey and not in the pre-image found in <a href="https://github.com/manuelmarcano22/VIMOSReduced/blob/master/note.tex">note.tex</a>) the closest match is <strong>TYC 7381-792-1</strong> <a href="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=%407402272&amp;Name=TYC%207381-792-1&amp;submit=submit">Query</a>. It is inded a CXOGBS object with ID J174502.7-315934.</p>
+<p>In vizier you can look for the sources on catalogs like the X-ray survey of the Galactic Bulge <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=J/ApJS/210/18">GBS catalog</a>.</p>
+<p>From there can have a view in many wavelength with <a href="http://aladin.u-strasbg.fr/AladinLite/?target=17%2045%202.780-31%2059%2035.00&amp;fov=8.31&amp;survey=JAXA%2FP%2FSWIFT_BAT_FLUX">aladin</a>. See below</p>
+<h3 id="swift-view">Swift view</h3>
+<link rel="stylesheet" href="http://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+<div id="aladin-lite-div" style="width:400px;height:400px;">
+
+</div>
+<script type="text/javascript" src="http://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+var aladin = A.aladin("#aladin-lite-div", {survey: "JAXA/P/SWIFT_BAT_FLUXP/DSS2/color", fov: 8.31, target: "17 45 2.780-31 59 35.00"});
+</script>
+<p>Searching on the Tycho stars I found this very relevant paper <span class="citation" data-cites="TychoIdentification">(Hynes et al. 2012)</span>. Regarding CX25 it says:</p>
+<blockquote>
+<p>6.8. CX25 (CXOGBS J174502.7–315934) TYC 7381-792-1 shows no detectable period, but does appear to exhibit irregular variability in ASAS data. The colors are consistent with a single star, with the JHK colors suggesting an <strong>early K main-sequence or late G giant type</strong>. It has a high X-ray to optical flux ratio and quite hard spectrum (like CX10 and 12). It is likely an active single star or binary</p>
+</blockquote>
+<p>CX25 is also mentioned in <span class="citation" data-cites="greiss2014">(Greiss et al. 2014)</span> as a near-infrared counterparts to the Galactic Bulge Survey X-ray source population. In the draft paper it is catalog as a possible RS CVn.</p>
+<h2 id="the-spectra">The Spectra</h2>
+<p>The source center at around <strong>66</strong>. It has <strong>H<span class="math inline">\(\alpha\)</span></strong> line. Doing a quick gaussian fit in IRAF using k. It has a <strong>equivalen width</strong> of about 1.9 and <strong>FWHM</strong> of about 12.</p>
+<script
+    src="/VIMOSlabbook/css/cx25.js"
+    id="67f6a2cf-1662-457e-b0f7-8079eb902bbc"
+    data-bokeh-model-id="bf585f80-f754-419d-8041-367eb935b5c9"
+    data-bokeh-doc-id="003b4fd6-7d16-411a-828c-16789025676b"
+></script>
+<!--
+After identifying the right spectra to work with I can use the following resources to understand the spectra:
+
+
+- http://www.unitronitalia.com/prodotti/analysis-and-interpretation-of-astronomical-sp.pdf on page 86
+
+- A DIGITAL SPECTRAL CLASSIFICATION ATLAS: http://ned.ipac.caltech.edu/level5/Gray/frames.html
+
+-  http://ned.ipac.caltech.edu/level5/ASS_Atlas/frames.html
+
+- [Common lines](http://www.star.ucl.ac.uk/~msw/lines.html)
+
+- [Helium Lines tables](http://physics.nist.gov/PhysRefData/Handbook/Tables/heliumtable2.htm)
+
+I found a nice book of stellar spectral classification [@SpectralClassBook]
+
+### NIR lines
+
+If the second aperture on the SRFM we can look at the NIR to see if we can find some Ca II triplets at 849.803, 854.209 and 866.214 nm. 
+
+[](/VIMOSlabbook/images/cx25NIRlines.png) 
+
+`splot VI_SRFM_577734_2011-06-24T05:56:42.518_G475_MR_402230_Q4_hi.fits xmin=8400 xmax = 8800`
+
+
+
+From [@SpectralClassBook] page 284 and citing [@Carquillat1997] to compare:
+
+![](/VIMOSlabbook/images/gandknir.png)
+
+![](/VIMOSlabbook/images/gandkopticalbook.png)
+
+
+
+### Balmer Series
+
+We see big absorption in H$\alpha$ and absorption at 6497 too. For H$\beta$ at 4861 A there is maybe a little emmission . 
+
+
+### Bokeh Spectra
+
+<script
+    src="/VIMOSlabbook/images/bokehgraphs/spectraap3cx25smoothsky.js"
+    id="9900d7a1-06cc-481a-bf12-913428e2209c"
+    data-bokeh-model-id="d3afd715-48c0-4c09-b327-d15b2392b89f"
+    data-bokeh-doc-id="6da6d7c9-3e99-4669-ab51-616147e71d9d"
+></script>
+
+
+
+
+# The Other Aperture
+
+
+If the source is the other object in the slit the spectra is plotted below. Contrary to the other object this one has emission in  H$\alpha$ at around 656.3 nm. For $H\beta$ at 486.1 nm there seems to be a tiny absorption. At 850 nm, 854.3, and 866.0 nm, there seem to be the three **Ca II Triplet**. And for the one at 854.3 nm there seems to be a tiny emission line. For the **Na I D** around 589.598 nm  line there is a strange profile maybe due to small emission, and for **Mg I b1** around 518.362 nm maybe also emission.  
+
+About this [@SpectralClassBook] says:
+
+> For solar-type stars the best indicators of stellar activity are the emissions in the cores of the Ca II H and K, in the core of H$\alpha$ line, and of Ca II triplet lines. In section 7.2.2 
+
+Ca II H & K lines are outside my dataset being below 400 nm at 3968.468 (H) and 3933.663 (k) nm. 
+
+### Other possible lines
+
+I tried to find some of the lines mentioned in the "An Atlas of optical continuum and line emission from LMXB" [@Shahbaz1996]. At the end of the page there is an example from [Cen X-4](http://simbad.u-strasbg.fr/simbad/sim-basic?Ident=Cen+X-4&submit=SIMBAD+search) that according to [@Shahbaz1996] is an K5V spectral type with varius H, He and O lines. It is an LMXB.
+
+At 940.4 there seems to be another emission line. Maybe from the Pashen series.
+
+Regarding **Helium**. I am not sure if like the CVs Helium II and Helium I should be present. A table can be found [here](http://physics.nist.gov/PhysRefData/Handbook/Tables/heliumtable2.htm). Some Helium lines in the spectral range are:
+
+#### Helium I
+
+* He I: 492.1 nm 
+* He I: 587.5 nm  (Maybe emission next to absorption)
+* He I: 667.8 nm 
+
+#### Helium II
+
+* The strong He II line at 468.5 nm is out of range 
+
+Need to look for **OIII** maybe. 
+
+* OIII at 559.2 nm. Maybe tiny emission in absorption? 
+
+
+<script
+    src="/VIMOSlabbook/images/bokehgraphs/spectraap2cx25.js"
+    id="f7e81da9-3760-4cb2-a8bb-2a33f908d8c3"
+    data-bokeh-model-id="60f28dc8-0f87-48c3-9143-a19cac57a213"
+    data-bokeh-doc-id="4db13c27-df1f-4859-b48e-332b7b666604"
+></script>
+
+
+Example from CEN X-4 
+
+![](/VIMOSlabbook/images/cenx4.png)
+
+- - - 
+
+## To Do: Spectra Correction and Normalized
+
+I need to ask if I need to do the correction with the link that Dr. Torre send me.
+
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">sexm</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;trySEXM.ms.fits&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;respo.fits&#39;</span><span class="p">)</span>
+<span class="n">sexminsert</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">sexm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">])</span> <span class="c"># to include 0 zero</span></code></pre></figure>
+
+
+-->
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-greiss2014">
+<p>Greiss, S., D. Steeghs, P. G. Jonker, M. A. P. Torres, T. J. Maccarone, R. I. Hynes, C. T. Britt, G. Nelemans, and B. T. Gänsicke. 2014. “Near-infrared counterparts to the Galactic Bulge Survey X-ray source population.” <em>Monthly Notices of the Royal Astronomical Society</em> 438 (March): 2839–52. doi:<a href="https://doi.org/10.1093/mnras/stt2390">10.1093/mnras/stt2390</a>.</p>
+</div>
+<div id="ref-TychoIdentification">
+<p>Hynes, R. I., N. J. Wright, T. J. Maccarone, P. G. Jonker, S. Greiss, D. Steeghs, M. A. P. Torres, C. T. Britt, and G. Nelemans. 2012. “Identification of Galactic Bulge Survey X-Ray Sources with Tycho-2 Stars.” <em>The Astrophysical Journal</em> 761 (December): 162. doi:<a href="https://doi.org/10.1088/0004-637X/761/2/162">10.1088/0004-637X/761/2/162</a>.</p>
+</div>
+</div>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/apall.html'>apall</a></li>
+
+<li><a href='/VIMOSlabbook/tag/pyraf.html'>pyraf</a></li>
+
+<li><a href='/VIMOSlabbook/tag/iraf.html'>iraf</a></li>
+
+<li><a href='/VIMOSlabbook/tag/spectrum.html'>spectrum</a></li>
+
+<li><a href='/VIMOSlabbook/tag/spectra.html'>spectra</a></li>
+
+<li><a href='/VIMOSlabbook/tag/simbad.html'>simbad</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

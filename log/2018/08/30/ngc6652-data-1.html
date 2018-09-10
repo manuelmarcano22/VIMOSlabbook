@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NGC6652 data</title>
+  <meta name="description" content="VIMOS">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2018/08/30/ngc6652-data-1.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">NGC6652 data</h1>
+    <p class="post-meta"><time datetime="2018-08-30T00:00:00-05:00" itemprop="datePublished">Aug 30, 2018</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="vimos">VIMOS</h1>
+<p>From <a href="http://www.eso.org/sci/facilities/paranal/instruments/vimos/doc/VLT-MAN-ESO-14610-3509_v92.pdf">VIMOS User Manual VLT-MAN-ESO-14610-3509</a></p>
+<blockquote>
+<p>Due to the offset position of IFU with respect to the center, the keywords RA and DEC in the headers do not refer to the IFU pointing, but rather to the center of the VIMOS FoV. Prior to P91 the only way to determine the actual position of the IFU was using the center coordinates, together with the IFU offset position, coded in the keywords ”HIERARCH ESO OCS CON WCS IFUCENX”, and ”HIERARCH ESO OCS CON WCS IFUCENY”, and the PA on sky (after some spherical trigonometry). This was needed because the only other relevant information on the headers was ”HIERARCH ESO TEL TARG ALPHA”, and ”HIERARCH ESO TEL TARG DELTA”, which contained the coordinates of the target. Any offsets from the original pointing would result in an IFU pointing that would differ from these keywords. Starting in P91 the relevant header keywords which contain the information of the actual pointing of the IFU are ”HIERARCH ESO INS IFU RA” and ”HIERARCH ESO INS IFU DEC”. Notice that the whole ESO archive of IFU data has been retro-fitted with these keywords, so now it is possible to search for IFU observations simply queryng by target coordinates.</p>
+</blockquote>
+<p>I think PA is position angle. There is a line in the header with:</p>
+<p>HIERARCH ESO ADA POSANG = 0.00000 / Position angle at start</p>
+<h1 id="ngc-6652">NGC 6652</h1>
+<p>The cube extraction might have been done wrong. To recheck download the data raw data gain. Anna suggested to include the OB name to be displayed:</p>
+<ul>
+<li><strong>OB Name</strong>: Enter the name of the Observation Block itself, if known</li>
+</ul>
+<p>There seem to be NGC-66652-A-[1-4] and NGC-6652-B-[1-5] and NGC-6652-C+D</p>
+<p>Each observation set seems to come in group of four, probably the four quadrants, and two quadrant separated by a few seconds and then the other two quadrants separated by about 30 seconeds from the other two, except for B-5 for now. From the archive can tell it to downlooad the associated calibration files. It will detect them and tell oyu the names and if they are complete. Can access the request via the email they send to my yahoo email.</p>
+<p>Order of 1,4,2,3 quadrant so far</p>
+<h2 id="ngc-6652-b-1">NGC 6652 B-1</h2>
+<p>It has 8 science exposrues, so two set of observations. The log files says the following:</p>
+<blockquote>
+<p>Nightlog information for file VIMOS.2003-06-04T05:39:22.788 <br/> OB grade: B)Mostly within specifications <br/> Comment: Extremely difficult identify the field requested on the deep B images provided by the user. Relative position of the IFU pointing measured from the center of the cluster. The seeing conditions have be</p>
+</blockquote>
+<pre><code>              Requested    Fulfilled?
+Seeing:           1.20          Almost
+Airmass:          1.50          Yes
+Moon Distance:    90          Yes
+Sky Transparency: 3THN          Yes
+Strehl Ratio:     0.000          N/A</code></pre>
+<figure>
+<img src="/VIMOSlabbook/images/completeB1p1.png" alt="Complete B1 two quadrants part 1" /><figcaption>Complete B1 two quadrants part 1</figcaption>
+</figure>
+<p>From the archive downloaded the data with the OB name NGC-6652-1. It is in the folder <code>~/Documents/VIMOS/NGC6652/data/NGC6652B1</code>. Will create a raw data folder, scripts folder</p>
+<p>First step is to extract the .fits.Z files. The extractZfiles notebook does that</p>
+<h1 id="reflex-try">Reflex try</h1>
+<p>Will try to install reflex and try it.</p>
+<p>The first two work bu the last two complains about not having enough bias for the Median reduction. Try to see how the master bias for the first two was created. Either wat we get an error in the astrometry.</p>
+<ul>
+<li>[ ] Try to see how the first wo were created then to the same manually to the third and fourth. Weird the bias not working for them.</li>
+</ul>
+<p>And it suddenly worked.</p>
+<h1 id="ngc6652-b-2">NGC6652 B-2</h1>
+<p>It has 16 total science exposures. So 4 sets of observations. For the first four the log file said that the observation sohuld be repeated:</p>
+<blockquote>
+<p>Nightlog information for file VIMOS.2003-06-22T02:18:42.136 <br/> OB grade: C)Out of specs - Repeat <br /> Comment: tried to center by Guidecam - had to offset 22&quot; north - was not confirmed by reconstructed image - pointing most probably crap</p>
+</blockquote>
+<pre><code>              Requested    Fulfilled?
+Seeing:           1.20          Yes
+Airmass:          1.50          Yes
+Moon Distance:    90          Yes
+Sky Transparency: 3THN          Yes
+Strehl Ratio:     0.000          N/A</code></pre>
+<p>For the rest the LMXB should be in the field:</p>
+<blockquote>
+<p>Nightlog information for file VIMOS.2003-06-22T03:36:05.268 <br/> OB grade: B)Mostly within specifications <br/> Comment: no pointing correction done - from reconstructed image it seems offset by ~5“, but LMXB should be in the field</p>
+</blockquote>
+<p>For the set of observation VIMOS.2003-06-22T02:40:26.08[5-6] and VIMOS.2003-06-22T02:40:57.40[4-5]</p>
+<figure>
+<img src="/VIMOSlabbook/images/completeB2p1.png" alt="Complete B2 two quadrants part 1" /><figcaption>Complete B2 two quadrants part 1</figcaption>
+</figure>
+<figure>
+<img src="/VIMOSlabbook/images/completeB2p1.png" alt="Complete B2 two quadrants part 2" /><figcaption>Complete B2 two quadrants part 2</figcaption>
+</figure>
+<h1 id="ngc6652-b-3">NGC6652 B-3</h1>
+<p>It has 8 total science exposures. Two sets of 4</p>
+<figure>
+<img src="/VIMOSlabbook/images/completeB3.png" alt="Complete B3 Sample" /><figcaption>Complete B3 Sample</figcaption>
+</figure>
+<p>The logs files say the following:</p>
+<blockquote>
+<p>Nightlog information for file VIMOS.2003-06-22T06:40:54.318 <br/> OB grade: B)Mostly within specifications <br/> Comment: corrected pointing to 5&quot; south - seeing on guide probe was ~1.2&quot;</p>
+</blockquote>
+<pre><code>              Requested    Fulfilled?
+              Seeing:           1.20          Almost
+              Airmass:          1.50          Yes
+              Moon Distance:    90          Yes
+              Sky Transparency: 3THN          Yes
+              Strehl Ratio:     0.000          N/A</code></pre>
+<h1 id="ngc6652-b-4">NGC6652 B-4</h1>
+<p>It has two three sets of observation and according to the request they are all complete. THe first one was a repeat. The log for the first one says:</p>
+<blockquote>
+<p>Nightlog information for file VIMOS.2003-06-24T04:24:10.847 <br/> OB grade: C)Out of specs - Repeat <br/> Comment: Pointing off by 4-5&quot; south (given a 13“x13” field) - user’s source is at edge of field, could still be useful but will be repeated</p>
+</blockquote>
+<p>And for the other two:</p>
+<blockquote>
+<p>OB grade: B)Mostly within specifications <br/> Comment: seeing on guide probe much better (&lt;1.0“) than on DIMM</p>
+</blockquote>
+<p>Only arch Spectrum change from NGCB5 calibration files</p>
+<h1 id="ngc6652-b-5">NGC6652 B-5</h1>
+<p>They are not separate by even a second.</p>
+<p>Two sets of four. The observation logs say:</p>
+<blockquote>
+<p>Nightlog information for file VIMOS.2003-06-24T05:47:09.495 <br/> OB grade: A)Fully within specifications</p>
+</blockquote>
+<p>And according to the request page they are all complete.</p>
+<h3 id="first-try-with-reflex">First try with Reflex</h3>
+<p>It says it is missing CCD table and aslo STD_FLUX_TABLE. That is weird because in the request it says they are complete. I will try to reduce it in reflex to see how they look and then manually.</p>
+<p>Work. Each notebook how I did each quadrant and for theother time just in one. Basically each quadrant as a bias, line catalgo, std flux, cand all that. For the first second time just neeeded to change the IFU_science to reduce.</p>
+<p>15,13 something in the first time. Astreometry still shitty.</p>
+<h2 id="skylines">Skylines</h2>
+<p><a href="http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle_query?1996PASP..108..277O&amp;data_type=PDF_HIGH&amp;whole_paper=YES&amp;type=PRINTER&amp;filetype=.pdf">OH and O2 lines</a></p>
+<p><a href="http://www.gemini.edu/sciops/instruments/nearir-resources/wavelength-calibration">Gemini</a></p>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/spectra.html'>spectra</a></li>
+
+<li><a href='/VIMOSlabbook/tag/ngc6652.html'>ngc6652</a></li>
+
+<li><a href='/VIMOSlabbook/tag/vimos.html'>vimos</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Docker Containers</title>
+  <meta name="description" content="Docker is an open-source project that allows you to easily create and share lightweight containers. The way I see it containers are sort of lightweight and p...">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2016/12/21/docker-containers.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Docker Containers</h1>
+    <p class="post-meta"><time datetime="2016-12-21T00:00:00-06:00" itemprop="datePublished">Dec 21, 2016</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Docker is an open-source project that allows you to easily create and share lightweight containers. The way I see it containers are sort of lightweight and portable virtual machines.</p>
+<p>So docker allows you to easily build and share a portable and easily customizable container. To ensure reproducibility this containers can be build with the require software and documents using a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>. These are the instructions to build the container. The one I will be using can be found <a href="https://github.com/manuelmarcano22/VIMOSDocker">here</a>. The Dockerfile can be shared and anybody can build the container or a very easy way to share the docker images is through their platform <a href="https://hub.docker.com/">Docker Hub</a>. The automatically build image can be found here:<a href="https://hub.docker.com/r/manuelmarcano22/vimosdocker/" class="uri">https://hub.docker.com/r/manuelmarcano22/vimosdocker/</a>. An easy</p>
+<p><code>docker pull manuelmarcano22/vimosdocker</code></p>
+<p>will allow you to have all the necessary software with the right version.</p>
+<p>Docker is widely used in the software development community and it is starting to be adopted by scientist. I have seen it being used in bioinformatics (for example, <a href="http://biocontainers.pro/">here</a> and in this paper <a href="https://arxiv.org/abs/1410.0846">An introduction to Docker for reproducible research, with examples from the R environment</a> ), in High energy physics (see for example the <a href="https://hub.docker.com/u/cern/">CERN</a> repos and <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbSoftOnDocker">LHC Docker images</a>), and also in Radio Astronomy (see this <a href="https://gaia.ub.edu/Twiki/pub/GENIUS/TrimesterReportDec2015-Feb2016/dockerpaper.pdfs://gaia.ub.edu/Twiki/pub/GENIUS/TrimesterReportDec2015-Feb2016/dockerpaper.pdf">paper</a> and <a href="http://kernsuite.info/">kernsuite</a>).</p>
+<p>All the major companies that provide cloud services have adopted Docker. This includes Digital Ocean, Amazon Web Services and Google cloud platform. So using docker containers not only allow you to easily share and replicate any computational workflow, but it also makes your analysis easily scalable and portable to move the analysis to the cloud. Computing in the cloud have been a really hot topic. Specially in the radio astronomy community. For example <a href="http://www.icrar.org/">ICRAR</a> have announced some projects using the Amazon web services to perform its data analysis (see <a href="https://aws.amazon.com/solutions/case-studies/icrar/">here</a> and the article <a href="https://arxiv.org/abs/1511.00401">Imaging SKA-Scale data in three different computing environments</a>.</p>
+<p>I will be using an image of an Scientific Linux 7.2 with miniconda (python 3.5) installed. The idea is to try to follow the Reproducible Workflow shown in this paper <a href="http://biorxiv.org/content/early/2016/08/11/056473">Reproducible Computational Workflows with Continuous Analysis</a>.</p>
+<h3 id="resources">Resources</h3>
+<p>Some resources are listed below. This includes some articles and blog post talking about Docker and scientific computing.</p>
+<ul>
+<li><p><a href="https://gaia.ub.edu/Twiki/pub/GENIUS/TrimesterReportDec2015-Feb2016/dockerpaper.pdf">Use of Docker✩ for deployment and testing of astronomy software</a></p></li>
+<li><p>Tutorial: <a href="http://angus.readthedocs.io/en/2015/week3/CTB_docker.html">A hands-on introduction to Docker</a></p></li>
+<li><p><a href="https://arxiv.org/abs/1410.0846">An introduction to Docker for reproducible research, with examples from the R environment</a></p></li>
+<li><p><a href="http://caseyjlaw.github.io/docker-in-astronomy.html">Docker in Astronomy</a></p></li>
+<li><p>Video: <a href="https://www.youtube.com/watch?v=K98cbiQg-A8">Docker and Radio Astronomy - Containing Fragile Scientific Software by Gijs Molenaar</a></p></li>
+<li><p><a href="http://kernsuite.info/">KERN Radio Astronomy Software Suite</a>. It includes a base docker image which you can use to create custom docker images containers all the KERN packages combined with your own scripts.</p></li>
+<li><p><a href="http://biorxiv.org/content/early/2016/08/11/056473">Reproducible Computational Workflows with Continuous Analysis</a>.</p></li>
+</ul>
+<h3 id="docker-ssh">Docker SSH</h3>
+<p>After some help from <a href="https://dzone.com/articles/docker-x11-client-via-ssh">here</a> I was able to get X forwarding. I now run in my VPS</p>
+<p><code>docker run -ti -e DISPLAY=$DISPLAY --net=host  -v /tmp/.X11-unix:/tmp/.X11-unix  --volume=&quot;$HOME/.Xauthority:/home/vimos/.Xauthority:rw&quot;  --name xvaina manuelmarcano22/vimosdocker:latest</code></p>
+<p>I have to ssh with the <strong>-Y</strong>, with <strong>-X</strong> I get the error <strong>X Error of failed request: BadAccess (attempt to access private resource denied)</strong></p>
+<p>Before I looked at the <em>.Xauthority</em> file and added the docker group just in case.</p>
+<p><code>$ chown mmarcano22:docker ~/.Xauthority</code></p>
+<p>and</p>
+<p><code>$ chmod 0600 ~/.Xauthority</code></p>
+<p>Still haven’t completely figure it out.</p>
+<ul>
+<li><p>https://blog.docker.com/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/</p></li>
+<li><p>https://dzone.com/articles/docker-x11-client-via-ssh</p></li>
+</ul>
+<h3 id="useful-commands">Useful commands:</h3>
+<h4 id="to-pull-from-docker-hub">To pull from Docker hub:</h4>
+<p><code>docker pull manuelmarcano22/vimosdocker</code></p>
+<p>Currently the default tag is auto (latest by default). So can do:</p>
+<p><code>docker pull manuelmarcano22/vimosdocker:auto</code></p>
+<p>were auto is the tag.</p>
+<h4 id="to-run-interactivelty-that-is-with-a-terminal-do">To run interactivelty (that is with a terminal) do:</h4>
+<p><code>docker run -ti --name [name] manuelmarcano22/vimosdocker:auto</code></p>
+<h4 id="to-restart-an-exited-container">To restart an exited container:</h4>
+<p><code>docker start -i name</code></p>
+<h4 id="to-commit-and-push-changes-on-the-container">To commit and push changes on the container:</h4>
+<p>Can commit doing:</p>
+<p><code>docker commit -m [message] [container name] [REPOSITORY[:TAG]]</code></p>
+<p>For example it can be commited to <em>manuelmarcano22/vimosdocker:v2</em> and then push to the hub after doing <code>docker login</code> as:</p>
+<p><code>docker push manuelmarcano22/vimosdocker:v2</code>.</p>
+<h4 id="to-delete-all-images-and-containers">To delete all images and containers:</h4>
+<p>Delete all containers:</p>
+<p><code>docker rm $(docker ps -a -q)</code></p>
+<p>Delete all images:</p>
+<p><code>docker rmi $(docker images -q)</code></p>
+<h4 id="to-start-using-ds9-or-pyraf">To start using ds9 or pyraf</h4>
+<ul>
+<li><code>docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimos9 manuelmarcano22/vimosdocker:auto</code>. In this one might need to do <code>xhost -local:docker</code>. I have to do it in my personal laptop.</li>
+</ul>
+<p>Other ways can be found here: <a href="http://wiki.ros.org/docker/Tutorials/GUI" class="uri">http://wiki.ros.org/docker/Tutorials/GUI</a>. Some is discused here: <a href="http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/">Running GUI apps with Docker</a>.</p>
+<h4 id="to-start-with-jupyter-notebooks">To start with Jupyter notebooks</h4>
+<p>Use the same command as above but include the port <code>-p 8888:8888</code>:</p>
+<ul>
+<li><code>docker run -ti  -p 8888:8888  -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name vimosnet manuelmarcano22/vimosdocker:latest</code></li>
+</ul>
+<p>Then in the docker container do:</p>
+<ul>
+<li><code>jupyter notebook --ip 0.0.0.0 --no-browser --port 8888</code></li>
+</ul>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/docker.html'>docker</a></li>
+
+<li><a href='/VIMOSlabbook/tag/server.html'>server</a></li>
+
+<li><a href='/VIMOSlabbook/tag/computer.html'>computer</a></li>
+
+<li><a href='/VIMOSlabbook/tag/reproducible.html'>reproducible</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>

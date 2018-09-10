@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://www.w3.org/2005/10/profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bokeh Plots and JS9</title>
+  <meta name="description" content="Bokeh">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/main.css">
+  <link rel="stylesheet" href="/VIMOSlabbook/css/site.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/syntax.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9support.css"> 
+  <link rel="stylesheet" href="/VIMOSlabbook/css/js9.css"> 
+  <link rel="canonical" href="/VIMOSlabbook/log/2017/01/19/bokeh-plots.html">
+  <link rel="alternate" type="application/rss+xml" title="Lab Notebook for VIMOS Data Reduction at TTU" href="/VIMOSlabbook/feed.xml">
+  <!--<link rel="icon" type="image/png" href="/VIMOSlabbook/images/ico/favicon.png"> -->
+  <link rel="icon" type="image/x-icon" href="/VIMOSlabbook/images/ico/favicon2.ico">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/VIMOSlabbook/">Lab Notebook for VIMOS Data Reduction at TTU</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/server.html">server</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/docker.html">docker</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/jupyter.html">jupyter</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/python.html">python</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/first.html">first</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/computer.html">computer</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/reproducible.html">reproducible</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">VIMOS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/data.html">data</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectra.html">spectra</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/apall.html">apall</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimx.html">vimx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/dbus.html">dbus</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/iraf.html">iraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pyraf.html">pyraf</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sexm.html">SEXM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srfm.html">SRFM</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/bokeh.html">bokeh</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/plot.html">plot</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/interactive.html">interactive</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx183.html">cx183</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx252.html">cx252</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/js9.html">js9</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx371.html">cx371</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/spectrum.html">spectrum</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/simbad.html">simbad</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/srei.html">SREI</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/glossary.html">glossary</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/definitions.html">definitions</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx65.html">cx65</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/vimos.html">vimos</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx.html">cx</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/information.html">information</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/cx59.html">CX59</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classification.html">classification</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">sdss</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/template.html">template</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/pca.html">pca</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/paper.html">paper</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/classificatio.html">classificatio</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/astropy.html">astropy</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/fits.html">fits</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/segue.html">SEGUE</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/sdss.html">SDSS</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/line-index.html">line index</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/tag/ngc6652.html">ngc6652</a>
+          
+        
+          
+          <a class="page-link" href="/VIMOSlabbook/category/log/">log</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Bokeh Plots and JS9</h1>
+    <p class="post-meta"><time datetime="2017-01-19T00:00:00-06:00" itemprop="datePublished">Jan 19, 2017</time></p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9support.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/css/js9plugins.js"></script>
+
+  </header>
+
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="bokeh">Bokeh</h2>
+<p>One idea is that instead of having to take screenshots of the iraf spectra, I can use a plotting library like <a href="http://bokeh.pydata.org/en/latest/">Bokeh</a> to display interactive plots in here. Bokeh can be installed with conda. One way of getting the plot is:</p>
+<ul>
+<li>Create a javascript file and put in in the <strong>/VIMOSlabbook/images/bokehgraphs</strong> folder</li>
+<li>Then in here call the script. For example:</li>
+</ul>
+<figure class="highlight">
+<pre><code class="language-html" data-lang="html"><span class="nt">&lt;script</span>
+<span class="nt">    </span><span class="na">src=</span><span class="s">&quot;/VIMOSlabbook/images/bokehgraphs/bokeh1.js&quot;</span>
+    <span class="na">id=</span><span class="s">&quot;deab7ab7-b894-4eb4-81be-488c6d136d17&quot;</span>
+    <span class="na">data-bokeh-model-id=</span><span class="s">&quot;5dcc4051-f29b-439a-8c65-43090c7bab7c&quot;</span>
+    <span class="na">data-bokeh-doc-id=</span><span class="s">&quot;d572a467-6563-4a98-859c-4e5242fa207f&quot;</span>
+<span class="nt">&gt;&lt;/script&gt;</span></code></pre>
+</figure>
+<p>The minimal python script is:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="kn">from</span> <span class="nn">bokeh.resources</span> <span class="kn">import</span> <span class="n">CDN</span>
+<span class="lineno"> 2</span> <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="lineno"> 3</span> <span class="kn">from</span> <span class="nn">bokeh.embed</span> <span class="kn">import</span> <span class="n">autoload_static</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="n">name</span><span class="o">=</span> <span class="s">&#39;bokeh1.js&#39;</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="c">#Plot commands</span>
+<span class="lineno"> 8</span> <span class="n">plot</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="lineno"> 9</span> <span class="n">plot</span><span class="o">.</span><span class="n">circle</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="c">#Js is a js file that provides data for the plot and the tag is the tag to include in the html document.</span>
+<span class="lineno">12</span> <span class="n">js</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">autoload_static</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">CDN</span><span class="p">,</span> <span class="s">&quot;/VIMOSlabbook/images/bokehgraphs/&quot;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;.js&quot;</span><span class="p">)</span>
+<span class="lineno">13</span> 
+<span class="lineno">14</span> <span class="c">##To save it in files</span>
+<span class="lineno">15</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#39;.js&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jsfile</span><span class="p">:</span>
+<span class="lineno">16</span>  <span class="n">jsfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">js</span><span class="p">)</span>
+<span class="lineno">17</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#39;.html&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">htmlfile</span><span class="p">:</span>
+<span class="lineno">18</span>  <span class="n">htmlfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span></code></pre>
+</figure>
+<p>For the jupyter notebooks and to include them in the Jekyll notebook:</p>
+<p><code>js, tag = autoload_static(p, CDN, &quot;/VIMOSlabbook/css/cx25.js&quot;)</code></p>
+<p>Then download the .js file. To get the links</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="lineno">1</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">FileLink</span><span class="p">,</span> <span class="n">FileLinks</span>
+<span class="lineno">2</span> <span class="n">FileLinks</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span> <span class="c">#lists all downloadable files on server</span></code></pre>
+</figure>
+<h3 id="bokeh-and-docker">Bokeh and Docker</h3>
+<p>In the docker container can create an html as output and if the docker container was created exposing a port with the <code>-p 8888:8888</code> for example can create a simple HTTP server with python (<code>python -m SimpleHTTPServer 8888</code>)and preview the Bokeh plot in localhost at the specified port.</p>
+<p>To plot the spectra from the header information this page was very useful:</p>
+<ul>
+<li><a href="http://stsdas.stsci.edu/cgi-bin/gethelp.cgi?specwcs">The IRAF/NOAO Spectral World Coordinate Systems</a></li>
+</ul>
+<blockquote>
+<p>The FITS image header keywords describing the spectral world coordinates are CTYPEi, CRPIXi, CRVALi, and CDi_j where i and j are axis numbers. As with the physical coordinate transformation the nondiagonal or rotation terms are not expected in the spectral WCS and may cause problems if they are not zero. The CTYPEi keywords will have the value LINEAR to identify the type of of coordinate system. The transformation between dispersion coordinate, wi, and logical pixel coordinate, li, along axis i is given by wi = CRVALi + CDi_i * (li - CRPIXi)</p>
+</blockquote>
+<p>Regarding the defaults</p>
+<blockquote>
+<p>If the keywords are missing then the values are assumed to be zero except for the diagonal elements of the scale/rotation matrix, the CDi_i, which are assumed to be 1. If only some of the keywords are present then any missing CDi_i keywords will take the value 0 which will cause IRAF tasks to fail with arithmetic or matrix inversion errors. If the CTYPEi keyword is missing it is assumed to be “LINEAR”.</p>
+</blockquote>
+<p>See the Python file <a href="https://github.com/manuelmarcano22/VIMOSReduced/blob/master/cx0025/createspectra1.py">createspectra1.py</a> in the VIMOSReduced git repo.</p>
+<p>The output is:</p>
+<script
+    src="/VIMOSlabbook/images/bokehgraphs/spectraap2cx25.js"
+    id="f7e81da9-3760-4cb2-a8bb-2a33f908d8c3"
+    data-bokeh-model-id="60f28dc8-0f87-48c3-9143-a19cac57a213"
+    data-bokeh-doc-id="4db13c27-df1f-4859-b48e-332b7b666604"
+></script>
+<h3 id="boxcar-smooth">Boxcar Smooth</h3>
+<p>IRAF very useful smooth function applies a boxcar smooth. A nice short reference is in <a href="http://joseph-long.com/writing/AstroPy-boxcar/">here</a>. This is using the astropy functions:</p>
+<p><code>from astropy.convolution import convolve, Box1DKernel</code></p>
+<p>Following the example <a href="https://demo.bokehplots.com/apps/sliders">here</a> and <a href="https://github.com/bokeh/bokeh/blob/master/examples/app/sliders.py">here</a> I can try to have it in bokeh. The only ploblem is that to generate the static html and js the widget I think needs to be written in JS and you have to pass a ColumnDataSource. One easy, but not efficient way is to create several Data sets. It does the work but could be more efficient. Also to get back to the unsmooth one needs to refresh the whole page.</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python"><span class="n">source3</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">ysmooth3</span><span class="p">))</span>
+<span class="n">source5</span> <span class="o">=</span> <span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">ysmooth5</span><span class="p">))</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">x_axis_label</span><span class="o">=</span><span class="s">&#39;Angstrom&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">add_tools</span><span class="p">(</span><span class="n">hover</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">add_tools</span><span class="p">(</span><span class="n">tools</span><span class="o">.</span><span class="n">ResizeTool</span><span class="p">())</span>
+<span class="c">#Eraaseplot.line(xlist,secondstar)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">,</span><span class="s">&#39;y&#39;</span><span class="p">,</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+
+<span class="c">##Callback in JS</span>
+<span class="n">callback</span> <span class="o">=</span> <span class="n">CustomJS</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span><span class="n">source3</span><span class="o">=</span><span class="n">source3</span><span class="p">,</span><span class="n">source5</span><span class="o">=</span><span class="n">source5</span><span class="p">),</span> <span class="n">code</span><span class="o">=</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">        var data = source.data;</span>
+<span class="s">        var data3 = source3.data;</span>
+<span class="s">        var data5 = source5.data;</span>
+<span class="s">        var f = cb_obj.value</span>
+<span class="s">        y = data[&#39;y&#39;]</span>
+<span class="s">        y3 = data3[&#39;y&#39;]</span>
+<span class="s">        y5 = data5[&#39;y&#39;]</span>
+<span class="s">        </span>
+<span class="s">        if (f == 3.0){</span>
+<span class="s">        for (i = 0; i &lt; y.length; i++) {</span>
+<span class="s">            y[i] = y3[i]</span>
+<span class="s">        }</span>
+<span class="s">        }</span>
+<span class="s">        </span>
+<span class="s">        if (f == 5.0){</span>
+<span class="s">        for (i = 0; i &lt; y.length; i++) {</span>
+<span class="s">            y[i] = y5[i]</span>
+<span class="s">        }</span>
+<span class="s">        }</span>
+<span class="s">        source.trigger(&#39;change&#39;);</span>
+<span class="s">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="c"># Set up slider</span>
+<span class="n">slider</span> <span class="o">=</span> <span class="n">Slider</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Smooth Curve&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">column</span><span class="p">(</span><span class="n">slider</span><span class="p">,</span> <span class="n">plot</span><span class="p">)</span>
+<span class="n">output_file</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#39;try.html&#39;</span><span class="p">)</span></code></pre>
+</figure>
+<h1 id="javascript">Javascript</h1>
+<p>For javascript there are some interesting libraries like <a href="http://js9.si.edu/">JS9</a> to display astronomical image in your browser and <a href="http://www.numericjs.com/">Numeric Javascript</a> for</p>
+<h2 id="js9-demo-the-basics">JS9 Demo: the basics</h2>
+<p>The menubar does not work, but the image can be control via the <a href="http://js9.si.edu/js9/help/publicapi.html">JS9 Public API</a>. The API can be called from the console using firefox or google. Or using the js9 console below. One example with custom made buttons using the API is found <a href="http://js9.si.edu/js9/js9bespoke.html">here</a> and in the Cx0065 here.</p>
+<table cellspacing="15">
+<tr valign="top">
+<td>
+PNG files from FITS:
+<ul>
+<li>
+<a href='javascript:JS9.Load("/VIMOSlabbook/images/png/m13.png", {scale:"linear", colormap:"sls"});'>m13 (via SkyView)</a>
+</ul>
+</td>
+<td>
+FITS images and binary tables:
+<ul>
+<li>
+<a href='javascript:JS9.Load("/VIMOSlabbook/images/fits/cx25.fits", {scale:"log"});'>CX0025</a>
+<li>
+<a href='javascript:JS9.LoadRegions("/VIMOSlabbook/images/regions/cx25.reg");'>Region fileCX0025</a>
+</ul>
+</td>
+</tr>
+</table>
+<!--<div class="JS9Menubar"></div>-->
+<!--<div class="JS9"></div>-->
+<!--<div class="JS9Colorbar"></div>-->
+<div id="myJS9" class="JS9">
+
+</div>
+<!--data-width="300px" data-height="300px"></div>-->
+<div id="myJS9Console" class="JS9Console">
+
+</div>
+
+  </div>
+
+
+<div class="well well-small">
+<p class="text-info"><span class="glyphicons glyphicon-tag"></span>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/VIMOSlabbook/tag/bokeh.html'>bokeh</a></li>
+
+<li><a href='/VIMOSlabbook/tag/plot.html'>plot</a></li>
+
+<li><a href='/VIMOSlabbook/tag/spectra.html'>spectra</a></li>
+
+<li><a href='/VIMOSlabbook/tag/interactive.html'>interactive</a></li>
+
+</ul>
+</div>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Lab Notebook for VIMOS Data Reduction at TTU</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Lab Notebook for VIMOS Data Reduction at TTU</li>
+          <li><a href="mailto:manuel.pichardo-marcano@ttu.edu">manuel.pichardo-marcano@ttu.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is my personal open lab notebook as part of a research project done at TTU starting in Fall 2016 under the supervision of Dr. Thomas Maccarone.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/VIMOSlabbook/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
+</footer>
+
+
+  </body>
+
+</html>
